@@ -1,0 +1,936 @@
+Analysis & Synthesis report for PBL1
+Fri Oct 17 11:14:24 2025
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Port Connectivity Checks: "base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE"
+ 10. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT"
+ 11. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|divisao_5por4:comb_18"
+ 12. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2"
+ 13. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1"
+ 14. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID"
+ 15. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA3_3"
+ 16. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA3_2"
+ 17. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_1"
+ 18. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_1"
+ 19. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB"
+ 20. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1"
+ 21. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP"
+ 22. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF7"
+ 23. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF6"
+ 24. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF5"
+ 25. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF4"
+ 26. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF3"
+ 27. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF2"
+ 28. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF1"
+ 29. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF0"
+ 30. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT1"
+ 31. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT0"
+ 32. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|full_adder:AD02"
+ 33. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_EDGE_DETECT_FF"
+ 34. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7"
+ 35. Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+ 39. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Oct 17 11:14:24 2025          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; PBL1                                           ;
+; Top-level Entity Name              ; calculadora_rpn_completa                       ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 469                                            ;
+;     Total combinational functions  ; 450                                            ;
+;     Dedicated logic registers      ; 22                                             ;
+; Total registers                    ; 22                                             ;
+; Total pins                         ; 51                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                    ;
++------------------------------------------------------------------+--------------------------+--------------------+
+; Option                                                           ; Setting                  ; Default Value      ;
++------------------------------------------------------------------+--------------------------+--------------------+
+; Device                                                           ; 10M50DCF484C7G           ;                    ;
+; Top-level entity name                                            ; calculadora_rpn_completa ; PBL1               ;
+; Family name                                                      ; MAX 10                   ; Cyclone V          ;
+; Use smart compilation                                            ; Off                      ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                       ; On                 ;
+; Enable compact report table                                      ; Off                      ; Off                ;
+; Restructure Multiplexers                                         ; Auto                     ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                      ; Off                ;
+; Preserve fewer node names                                        ; On                       ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable                   ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001             ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993                ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto                     ; Auto               ;
+; Safe State Machine                                               ; Off                      ; Off                ;
+; Extract Verilog State Machines                                   ; On                       ; On                 ;
+; Extract VHDL State Machines                                      ; On                       ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                      ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000                     ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                      ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                       ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                       ; On                 ;
+; Parallel Synthesis                                               ; On                       ; On                 ;
+; DSP Block Balancing                                              ; Auto                     ; Auto               ;
+; NOT Gate Push-Back                                               ; On                       ; On                 ;
+; Power-Up Don't Care                                              ; On                       ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                      ; Off                ;
+; Remove Duplicate Registers                                       ; On                       ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                      ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                      ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                      ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                      ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                      ; Off                ;
+; Ignore SOFT Buffers                                              ; On                       ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                      ; Off                ;
+; Optimization Technique                                           ; Balanced                 ; Balanced           ;
+; Carry Chain Length                                               ; 70                       ; 70                 ;
+; Auto Carry Chains                                                ; On                       ; On                 ;
+; Auto Open-Drain Pins                                             ; On                       ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                      ; Off                ;
+; Auto ROM Replacement                                             ; On                       ; On                 ;
+; Auto RAM Replacement                                             ; On                       ; On                 ;
+; Auto DSP Block Replacement                                       ; On                       ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto                     ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                     ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                       ; On                 ;
+; Strict RAM Replacement                                           ; Off                      ; Off                ;
+; Allow Synchronous Control Signals                                ; On                       ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                      ; Off                ;
+; Auto RAM Block Balancing                                         ; On                       ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                      ; Off                ;
+; Auto Resource Sharing                                            ; Off                      ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                      ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                      ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                      ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                       ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                      ; Off                ;
+; Timing-Driven Synthesis                                          ; On                       ; On                 ;
+; Report Parameter Settings                                        ; On                       ; On                 ;
+; Report Source Assignments                                        ; On                       ; On                 ;
+; Report Connectivity Checks                                       ; On                       ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                      ; Off                ;
+; Synchronization Register Chain Length                            ; 2                        ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation       ; Normal compilation ;
+; HDL message level                                                ; Level2                   ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                      ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                     ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                     ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                      ; 100                ;
+; Clock MUX Protection                                             ; On                       ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                      ; Off                ;
+; Block Design Naming                                              ; Auto                     ; Auto               ;
+; SDC constraint protection                                        ; Off                      ; Off                ;
+; Synthesis Effort                                                 ; Auto                     ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                       ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                      ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium                   ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto                     ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                       ; On                 ;
++------------------------------------------------------------------+--------------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 14          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-14        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                      ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------------+---------+
+; decodificador_7seg.v             ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/decodificador_7seg.v           ;         ;
+; full_adder.v                     ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/full_adder.v                   ;         ;
+; mux_8_para_1.v                   ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_8_para_1.v                 ;         ;
+; mux_8_para_1_8bits.v             ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_8_para_1_8bits.v           ;         ;
+; base_7seg.v                      ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/base_7seg.v                    ;         ;
+; calculadora_rpn_completa.v       ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v     ;         ;
+; conversor_bases.v                ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/conversor_bases.v              ;         ;
+; flip_flop_d.v                    ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/flip_flop_d.v                  ;         ;
+; mux_2_para_1.v                   ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_2_para_1.v                 ;         ;
+; mux_2_para_1_8bits.v             ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_2_para_1_8bits.v           ;         ;
+; mux_4_para_1.v                   ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1.v                 ;         ;
+; mux_4_para_1_4bits.v             ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1_4bits.v           ;         ;
+; mux_4_para_1_7bits.v             ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1_7bits.v           ;         ;
+; registrador_8bits.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/registrador_8bits.v            ;         ;
+; somador_8bits.v                  ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/somador_8bits.v                ;         ;
+; subtrator_8bits.v                ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/subtrator_8bits.v              ;         ;
+; ula_8bits.v                      ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v                    ;         ;
+; unidade_and_8bits.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_and_8bits.v            ;         ;
+; unidade_not_8bits.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_not_8bits.v            ;         ;
+; unidade_or_8bits.v               ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_or_8bits.v             ;         ;
+; unidade_xor_8bits.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_xor_8bits.v            ;         ;
+; sistema_rpn_completo.v           ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/sistema_rpn_completo.v         ;         ;
+; bin_to_bcd_8bit_v3.v             ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/bin_to_bcd_8bit_v3.v           ;         ;
+; divisao_5por4.v                  ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/divisao_5por4.v                ;         ;
+; contador_push_2bits.v            ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_push_2bits.v          ;         ;
+; somador_16bits.v                 ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/somador_16bits.v               ;         ;
+; multiplicador_4x4.v              ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_4x4.v            ;         ;
+; multiplicador_8x8_recursivo .v   ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_8x8_recursivo .v ;         ;
+; half_adder.v                     ; yes             ; User Verilog HDL File  ; /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/half_adder.v                   ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                    ;
++---------------------------------------------+----------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                            ;
++---------------------------------------------+----------------------------------------------------------------------------------+
+; Estimated Total logic elements              ; 469                                                                              ;
+;                                             ;                                                                                  ;
+; Total combinational functions               ; 450                                                                              ;
+; Logic element usage by number of LUT inputs ;                                                                                  ;
+;     -- 4 input functions                    ; 322                                                                              ;
+;     -- 3 input functions                    ; 78                                                                               ;
+;     -- <=2 input functions                  ; 50                                                                               ;
+;                                             ;                                                                                  ;
+; Logic elements by mode                      ;                                                                                  ;
+;     -- normal mode                          ; 450                                                                              ;
+;     -- arithmetic mode                      ; 0                                                                                ;
+;                                             ;                                                                                  ;
+; Total registers                             ; 22                                                                               ;
+;     -- Dedicated logic registers            ; 22                                                                               ;
+;     -- I/O registers                        ; 0                                                                                ;
+;                                             ;                                                                                  ;
+; I/O pins                                    ; 51                                                                               ;
+;                                             ;                                                                                  ;
+; Embedded Multiplier 9-bit elements          ; 0                                                                                ;
+;                                             ;                                                                                  ;
+; Maximum fan-out node                        ; sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF0|Q ;
+; Maximum fan-out                             ; 39                                                                               ;
+; Total fan-out                               ; 1770                                                                             ;
+; Average fan-out                             ; 3.08                                                                             ;
++---------------------------------------------+----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                              ;
++-----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                            ; Entity Name                 ; Library Name ;
++-----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |calculadora_rpn_completa                     ; 450 (0)             ; 22 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 51   ; 0            ; 0          ; |calculadora_rpn_completa                                                                                                                                      ; calculadora_rpn_completa    ; work         ;
+;    |base_7seg:U_BASE_DISPLAY|                 ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY                                                                                                             ; base_7seg                   ; work         ;
+;       |mux_4_para_1_7bits:U_MUX_BASE|         ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE                                                                               ; mux_4_para_1_7bits          ; work         ;
+;          |mux_4_para_1:MUX_BIT0|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT0                                                         ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT5|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT5                                                         ; mux_4_para_1                ; work         ;
+;    |conversor_bases:U_CONVERSOR|              ; 114 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR                                                                                                          ; conversor_bases             ; work         ;
+;       |bin_to_bcd_8bit_v3:U_BCD|              ; 34 (34)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|bin_to_bcd_8bit_v3:U_BCD                                                                                 ; bin_to_bcd_8bit_v3          ; work         ;
+;       |decodificador_7seg:U_DECOD_CENTENA|    ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|decodificador_7seg:U_DECOD_CENTENA                                                                       ; decodificador_7seg          ; work         ;
+;       |decodificador_7seg:U_DECOD_DEZENA|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|decodificador_7seg:U_DECOD_DEZENA                                                                        ; decodificador_7seg          ; work         ;
+;       |decodificador_7seg:U_DECOD_UNIDADE|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|decodificador_7seg:U_DECOD_UNIDADE                                                                       ; decodificador_7seg          ; work         ;
+;       |mux_4_para_1_4bits:U_MUX_CENTENA|      ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA                                                                         ; mux_4_para_1_4bits          ; work         ;
+;          |mux_4_para_1:MUX_BIT0|              ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA|mux_4_para_1:MUX_BIT0                                                   ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT1|              ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA|mux_4_para_1:MUX_BIT1                                                   ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT2|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA|mux_4_para_1:MUX_BIT2                                                   ; mux_4_para_1                ; work         ;
+;       |mux_4_para_1_4bits:U_MUX_DEZENA|       ; 26 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA                                                                          ; mux_4_para_1_4bits          ; work         ;
+;          |mux_4_para_1:MUX_BIT0|              ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT0                                                    ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT1|              ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT1                                                    ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT2|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT2                                                    ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT3|              ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT3                                                    ; mux_4_para_1                ; work         ;
+;       |mux_4_para_1_4bits:U_MUX_UNIDADE|      ; 18 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE                                                                         ; mux_4_para_1_4bits          ; work         ;
+;          |mux_4_para_1:MUX_BIT1|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT1                                                   ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT2|              ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT2                                                   ; mux_4_para_1                ; work         ;
+;          |mux_4_para_1:MUX_BIT3|              ; 13 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT3                                                   ; mux_4_para_1                ; work         ;
+;    |sistema_rpn_completo:U_SISTEMA_RPN|       ; 333 (7)             ; 22 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN                                                                                                   ; sistema_rpn_completo        ; work         ;
+;       |contador_push_2bits:comb_7|            ; 3 (0)               ; 3 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7                                                                        ; contador_push_2bits         ; work         ;
+;          |flip_flop_d:U_EDGE_DETECT_FF|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_EDGE_DETECT_FF                                           ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_REG_COUNT0|           ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT0                                               ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_REG_COUNT1|           ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT1                                               ; flip_flop_d                 ; work         ;
+;       |mux_2_para_1_8bits:U_MUX_EXIBICAO|     ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO                                                                 ; mux_2_para_1_8bits          ; work         ;
+;          |mux_2_para_1:MUX_BIT0|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT0                                           ; mux_2_para_1                ; work         ;
+;          |mux_2_para_1:MUX_BIT1|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT1                                           ; mux_2_para_1                ; work         ;
+;          |mux_2_para_1:MUX_BIT2|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT2                                           ; mux_2_para_1                ; work         ;
+;          |mux_2_para_1:MUX_BIT3|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT3                                           ; mux_2_para_1                ; work         ;
+;          |mux_2_para_1:MUX_BIT4|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT4                                           ; mux_2_para_1                ; work         ;
+;          |mux_2_para_1:MUX_BIT5|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT5                                           ; mux_2_para_1                ; work         ;
+;          |mux_2_para_1:MUX_BIT6|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT6                                           ; mux_2_para_1                ; work         ;
+;          |mux_2_para_1:MUX_BIT7|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT7                                           ; mux_2_para_1                ; work         ;
+;       |registrador_8bits:U_REG_A|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A                                                                         ; registrador_8bits           ; work         ;
+;          |flip_flop_d:U_FF0|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF0                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF1|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF1                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF2|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF2                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF3|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF3                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF4|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF4                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF5|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF5                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF6|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF6                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF7|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF7                                                       ; flip_flop_d                 ; work         ;
+;       |registrador_8bits:U_REG_B|             ; 0 (0)               ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B                                                                         ; registrador_8bits           ; work         ;
+;          |flip_flop_d:U_FF0|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF0                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF1|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF1                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF2|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF2                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF3|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF3                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF4|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF4                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF5|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF5                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF6|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF6                                                       ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF7|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF7                                                       ; flip_flop_d                 ; work         ;
+;       |registrador_8bits:U_REG_OP|            ; 0 (0)               ; 3 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP                                                                        ; registrador_8bits           ; work         ;
+;          |flip_flop_d:U_FF0|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF0                                                      ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF1|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF1                                                      ; flip_flop_d                 ; work         ;
+;          |flip_flop_d:U_FF2|                  ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF2                                                      ; flip_flop_d                 ; work         ;
+;       |ula_8bits:U_ULA|                       ; 315 (10)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA                                                                                   ; ula_8bits                   ; work         ;
+;          |divisao_5por4:comb_18|              ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|divisao_5por4:comb_18                                                             ; divisao_5por4               ; work         ;
+;          |multiplicador_8x8_recursivo:U_MULT| ; 188 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT                                                ; multiplicador_8x8_recursivo ; work         ;
+;             |multiplicador_4x4:U_MULT_A0B0|   ; 33 (9)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0                  ; multiplicador_4x4           ; work         ;
+;                |full_adder:FA0_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA0_2 ; full_adder                  ; work         ;
+;                |full_adder:FA0_3|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA0_3 ; full_adder                  ; work         ;
+;                |full_adder:FA1_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_1 ; full_adder                  ; work         ;
+;                |full_adder:FA1_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_2 ; full_adder                  ; work         ;
+;                |full_adder:FA1_3|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_3 ; full_adder                  ; work         ;
+;                |full_adder:FA1_4|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_4 ; full_adder                  ; work         ;
+;                |full_adder:FA2_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_1 ; full_adder                  ; work         ;
+;                |full_adder:FA2_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_2 ; full_adder                  ; work         ;
+;                |full_adder:FA2_3|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_3 ; full_adder                  ; work         ;
+;                |full_adder:FA2_4|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_4 ; full_adder                  ; work         ;
+;                |full_adder:FA3_2|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA3_2 ; full_adder                  ; work         ;
+;                |half_adder:HA0_1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|half_adder:HA0_1 ; half_adder                  ; work         ;
+;                |half_adder:HA0_4|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|half_adder:HA0_4 ; half_adder                  ; work         ;
+;                |half_adder:HA3_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|half_adder:HA3_1 ; half_adder                  ; work         ;
+;             |multiplicador_4x4:U_MULT_A0B1|   ; 36 (4)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1                  ; multiplicador_4x4           ; work         ;
+;                |full_adder:FA0_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA0_2 ; full_adder                  ; work         ;
+;                |full_adder:FA0_3|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA0_3 ; full_adder                  ; work         ;
+;                |full_adder:FA1_1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_1 ; full_adder                  ; work         ;
+;                |full_adder:FA1_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_2 ; full_adder                  ; work         ;
+;                |full_adder:FA1_3|             ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_3 ; full_adder                  ; work         ;
+;                |full_adder:FA1_4|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_4 ; full_adder                  ; work         ;
+;                |full_adder:FA2_1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_1 ; full_adder                  ; work         ;
+;                |full_adder:FA2_2|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_2 ; full_adder                  ; work         ;
+;                |full_adder:FA2_3|             ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_3 ; full_adder                  ; work         ;
+;                |full_adder:FA2_4|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_4 ; full_adder                  ; work         ;
+;                |half_adder:HA0_1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|half_adder:HA0_1 ; half_adder                  ; work         ;
+;                |half_adder:HA0_4|             ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|half_adder:HA0_4 ; half_adder                  ; work         ;
+;                |half_adder:HA3_1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|half_adder:HA3_1 ; half_adder                  ; work         ;
+;             |multiplicador_4x4:U_MULT_A1B0|   ; 36 (9)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0                  ; multiplicador_4x4           ; work         ;
+;                |full_adder:FA0_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA0_2 ; full_adder                  ; work         ;
+;                |full_adder:FA0_3|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA0_3 ; full_adder                  ; work         ;
+;                |full_adder:FA1_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_1 ; full_adder                  ; work         ;
+;                |full_adder:FA1_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_2 ; full_adder                  ; work         ;
+;                |full_adder:FA1_3|             ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_3 ; full_adder                  ; work         ;
+;                |full_adder:FA1_4|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_4 ; full_adder                  ; work         ;
+;                |full_adder:FA2_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_1 ; full_adder                  ; work         ;
+;                |full_adder:FA2_2|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_2 ; full_adder                  ; work         ;
+;                |full_adder:FA2_3|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_3 ; full_adder                  ; work         ;
+;                |full_adder:FA2_4|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_4 ; full_adder                  ; work         ;
+;                |half_adder:HA0_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|half_adder:HA0_1 ; half_adder                  ; work         ;
+;                |half_adder:HA0_4|             ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|half_adder:HA0_4 ; half_adder                  ; work         ;
+;             |multiplicador_4x4:U_MULT_A1B1|   ; 34 (2)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1                  ; multiplicador_4x4           ; work         ;
+;                |full_adder:FA0_2|             ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA0_2 ; full_adder                  ; work         ;
+;                |full_adder:FA1_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_1 ; full_adder                  ; work         ;
+;                |full_adder:FA1_2|             ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_2 ; full_adder                  ; work         ;
+;                |full_adder:FA1_3|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_3 ; full_adder                  ; work         ;
+;                |full_adder:FA1_4|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_4 ; full_adder                  ; work         ;
+;                |full_adder:FA2_1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_1 ; full_adder                  ; work         ;
+;                |full_adder:FA2_2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_2 ; full_adder                  ; work         ;
+;                |full_adder:FA2_3|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_3 ; full_adder                  ; work         ;
+;                |full_adder:FA2_4|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_4 ; full_adder                  ; work         ;
+;                |half_adder:HA0_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|half_adder:HA0_1 ; half_adder                  ; work         ;
+;                |half_adder:HA0_4|             ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|half_adder:HA0_4 ; half_adder                  ; work         ;
+;                |half_adder:HA3_1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|half_adder:HA3_1 ; half_adder                  ; work         ;
+;             |somador_16bits:ADD_FINAL1|       ; 7 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1                      ; somador_16bits              ; work         ;
+;                |full_adder:U_FA4|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA4     ; full_adder                  ; work         ;
+;                |full_adder:U_FA5|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA5     ; full_adder                  ; work         ;
+;                |full_adder:U_FA6|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA6     ; full_adder                  ; work         ;
+;                |full_adder:U_FA7|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA7     ; full_adder                  ; work         ;
+;             |somador_16bits:ADD_FINAL2|       ; 13 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2                      ; somador_16bits              ; work         ;
+;                |full_adder:U_FA10|            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA10    ; full_adder                  ; work         ;
+;                |full_adder:U_FA11|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA11    ; full_adder                  ; work         ;
+;                |full_adder:U_FA12|            ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA12    ; full_adder                  ; work         ;
+;                |full_adder:U_FA8|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA8     ; full_adder                  ; work         ;
+;                |full_adder:U_FA9|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA9     ; full_adder                  ; work         ;
+;             |somador_8bits:ADD_MID|           ; 29 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID                          ; somador_8bits               ; work         ;
+;                |full_adder:U_FA0|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA0         ; full_adder                  ; work         ;
+;                |full_adder:U_FA1|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA1         ; full_adder                  ; work         ;
+;                |full_adder:U_FA2|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA2         ; full_adder                  ; work         ;
+;                |full_adder:U_FA3|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA3         ; full_adder                  ; work         ;
+;                |full_adder:U_FA4|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA4         ; full_adder                  ; work         ;
+;                |full_adder:U_FA5|             ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA5         ; full_adder                  ; work         ;
+;                |full_adder:U_FA6|             ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA6         ; full_adder                  ; work         ;
+;                |full_adder:U_FA7|             ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA7         ; full_adder                  ; work         ;
+;          |mux_8_para_1:U_MUX_COUT|            ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1:U_MUX_COUT                                                           ; mux_8_para_1                ; work         ;
+;          |mux_8_para_1:U_MUX_ERR|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1:U_MUX_ERR                                                            ; mux_8_para_1                ; work         ;
+;          |mux_8_para_1:U_MUX_OV|              ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1:U_MUX_OV                                                             ; mux_8_para_1                ; work         ;
+;          |mux_8_para_1_8bits:U_MUX_RESULT|    ; 70 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT                                                   ; mux_8_para_1_8bits          ; work         ;
+;             |mux_8_para_1:MUX_BIT0|           ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT0                             ; mux_8_para_1                ; work         ;
+;             |mux_8_para_1:MUX_BIT1|           ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT1                             ; mux_8_para_1                ; work         ;
+;             |mux_8_para_1:MUX_BIT2|           ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT2                             ; mux_8_para_1                ; work         ;
+;             |mux_8_para_1:MUX_BIT3|           ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT3                             ; mux_8_para_1                ; work         ;
+;             |mux_8_para_1:MUX_BIT4|           ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT4                             ; mux_8_para_1                ; work         ;
+;             |mux_8_para_1:MUX_BIT5|           ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT5                             ; mux_8_para_1                ; work         ;
+;             |mux_8_para_1:MUX_BIT6|           ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT6                             ; mux_8_para_1                ; work         ;
+;             |mux_8_para_1:MUX_BIT7|           ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT7                             ; mux_8_para_1                ; work         ;
+;          |somador_8bits:U_SOMA|               ; 6 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA                                                              ; somador_8bits               ; work         ;
+;             |full_adder:U_FA1|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA1                                             ; full_adder                  ; work         ;
+;             |full_adder:U_FA2|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA2                                             ; full_adder                  ; work         ;
+;             |full_adder:U_FA3|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA3                                             ; full_adder                  ; work         ;
+;             |full_adder:U_FA4|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA4                                             ; full_adder                  ; work         ;
+;             |full_adder:U_FA5|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA5                                             ; full_adder                  ; work         ;
+;             |full_adder:U_FA6|                ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA6                                             ; full_adder                  ; work         ;
+;          |subtrator_8bits:U_SUB|              ; 13 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB                                                             ; subtrator_8bits             ; work         ;
+;             |somador_8bits:U_ADD_1|           ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1                                       ; somador_8bits               ; work         ;
+;                |full_adder:U_FA1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA1                      ; full_adder                  ; work         ;
+;                |full_adder:U_FA3|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA3                      ; full_adder                  ; work         ;
+;                |full_adder:U_FA4|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA4                      ; full_adder                  ; work         ;
+;                |full_adder:U_FA5|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA5                      ; full_adder                  ; work         ;
+;                |full_adder:U_FA6|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA6                      ; full_adder                  ; work         ;
+;             |somador_8bits:U_SUB|             ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB                                         ; somador_8bits               ; work         ;
+;                |full_adder:U_FA1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA1                        ; full_adder                  ; work         ;
+;                |full_adder:U_FA2|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA2                        ; full_adder                  ; work         ;
+;                |full_adder:U_FA3|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA3                        ; full_adder                  ; work         ;
+;                |full_adder:U_FA4|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA4                        ; full_adder                  ; work         ;
+;                |full_adder:U_FA5|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA5                        ; full_adder                  ; work         ;
+;                |full_adder:U_FA6|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA6                        ; full_adder                  ; work         ;
+;                |full_adder:U_FA7|             ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA7                        ; full_adder                  ; work         ;
+;          |unidade_xor_8bits:U_XOR|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_xor_8bits:U_XOR                                                           ; unidade_xor_8bits           ; work         ;
++-----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 22    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 19    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE" ;
++------+-------+----------+----------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                  ;
++------+-------+----------+----------------------------------------------------------+
+; D3   ; Input ; Info     ; Stuck at GND                                             ;
++------+-------+----------+----------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT"                                                                                              ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                           ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; D2   ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|divisao_5por4:comb_18"                                                                                             ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                               ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; s    ; Output ; Warning  ; Output or bidir port (5 bits) is smaller than the port expression (8 bits) it drives.  The 3 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2" ;
++---------+--------+----------+---------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                       ;
++---------+--------+----------+---------------------------------------------------------------------------------------------------------------+
+; b[7..0] ; Input  ; Info     ; Stuck at GND                                                                                                  ;
+; cin     ; Input  ; Info     ; Stuck at GND                                                                                                  ;
+; cout    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                           ;
+; ov      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.      ;
++---------+--------+----------+---------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1" ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                     ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------+
+; a[15..8]  ; Input  ; Info     ; Stuck at GND                                                                                                ;
+; b[15..13] ; Input  ; Info     ; Stuck at GND                                                                                                ;
+; b[3..0]   ; Input  ; Info     ; Stuck at GND                                                                                                ;
+; cin       ; Input  ; Info     ; Stuck at GND                                                                                                ;
+; cout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                         ;
+; ov        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.    ;
++-----------+--------+----------+-------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID" ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                      ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------+
+; cin  ; Input  ; Info     ; Stuck at GND                                                                                                 ;
+; ov   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.     ;
++------+--------+----------+--------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA3_3" ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                                                                                           ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA3_2" ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                                                                                           ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_1" ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                                                                                           ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_1" ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                                                                                           ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB" ;
++------+-------+----------+------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                        ;
++------+-------+----------+------------------------------------------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                                                   ;
++------+-------+----------+------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1" ;
++---------+--------+----------+----------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                      ;
++---------+--------+----------+----------------------------------------------------------------------------------------------+
+; b[7..1] ; Input  ; Info     ; Stuck at GND                                                                                 ;
+; b[0]    ; Input  ; Info     ; Stuck at VCC                                                                                 ;
+; cin     ; Input  ; Info     ; Stuck at GND                                                                                 ;
+; cout    ; Output ; Info     ; Explicitly unconnected                                                                       ;
+; ov      ; Output ; Info     ; Explicitly unconnected                                                                       ;
++---------+--------+----------+----------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP"                         ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Q[7..3] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF7"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF6"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF5"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF4"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF3"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF2"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF1"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF0"                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT1"                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT0"                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|full_adder:AD02" ;
++------+--------+----------+--------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                        ;
++------+--------+----------+--------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Explicitly unconnected                                                         ;
++------+--------+----------+--------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_EDGE_DETECT_FF"              ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                  ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Qn   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7" ;
++-------+-------+----------+----------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                        ;
++-------+-------+----------+----------------------------------------------------------------+
+; rst_n ; Input ; Info     ; Stuck at VCC                                                   ;
++-------+-------+----------+----------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sistema_rpn_completo:U_SISTEMA_RPN"                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; rst              ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; entrada_numero_a ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; entrada_numero_b ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; entrada_operacao ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; codigo_operacao  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; resultado_ula    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 51                          ;
+; cycloneiii_ff         ; 22                          ;
+;     ENA               ; 19                          ;
+;     plain             ; 3                           ;
+; cycloneiii_lcell_comb ; 457                         ;
+;     normal            ; 457                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 49                          ;
+;         3 data inputs ; 78                          ;
+;         4 data inputs ; 322                         ;
+;                       ;                             ;
+; Max LUT depth         ; 21.00                       ;
+; Average LUT depth     ; 15.41                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Fri Oct 17 11:14:18 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBL1 -c PBL1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file decodificador_7seg.v
+    Info (12023): Found entity 1: decodificador_7seg File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/decodificador_7seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file full_adder.v
+    Info (12023): Found entity 1: full_adder File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/full_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8_para_1.v
+    Info (12023): Found entity 1: mux_8_para_1 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_8_para_1.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8_para_1_8bits.v
+    Info (12023): Found entity 1: mux_8_para_1_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_8_para_1_8bits.v Line: 2
+Warning (12019): Can't analyze file -- file flag_zero.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file bin_to_bcd_8bit.v
+    Info (12023): Found entity 1: bin_to_bcd_8bit File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/bin_to_bcd_8bit.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file operacao_7seg.v
+    Info (12023): Found entity 1: operacao_7seg File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/operacao_7seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/flag_ov.v
+    Info (12023): Found entity 1: flag_ov File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/output_files/flag_ov.v Line: 1
+Warning (12019): Can't analyze file -- file subtrator_5x4bits.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file output_files/subtrator_5x4bits_v2.v
+    Info (12023): Found entity 1: subtrator_5x4bits_v2 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/output_files/subtrator_5x4bits_v2.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file base_7seg.v
+    Info (12023): Found entity 1: base_7seg File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/base_7seg.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file calculadora_rpn_completa.v
+    Info (12023): Found entity 1: calculadora_rpn_completa File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file comparador_8bits.v
+    Info (12023): Found entity 1: comparador_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/comparador_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file contador_1bit.v
+    Info (12023): Found entity 1: contador_1bit File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_1bit.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2bits.v
+    Info (12023): Found entity 1: contador_2bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_2bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file contador_3bits.v
+    Info (12023): Found entity 1: contador_3bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_3bits.v Line: 4
+Warning (12019): Can't analyze file -- file controle_clock.v is missing
+Warning (12019): Can't analyze file -- file controle_entrada.v is missing
+Warning (12019): Can't analyze file -- file controle_memoria.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file conversor_bases.v
+    Info (12023): Found entity 1: conversor_bases File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/conversor_bases.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file divisor_real.v
+    Info (12023): Found entity 1: divisor_real File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/divisor_real.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file flip_flop_d.v
+    Info (12023): Found entity 1: flip_flop_d File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/flip_flop_d.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file multiplicador_recursivo.v
+    Info (12023): Found entity 1: multiplicador_recursivo File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_recursivo.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file mux_2_para_1.v
+    Info (12023): Found entity 1: mux_2_para_1 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_2_para_1.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file mux_2_para_1_8bits.v
+    Info (12023): Found entity 1: mux_2_para_1_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_2_para_1_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file mux_4_para_1.v
+    Info (12023): Found entity 1: mux_4_para_1 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file mux_4_para_1_4bits.v
+    Info (12023): Found entity 1: mux_4_para_1_4bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1_4bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file mux_4_para_1_7bits.v
+    Info (12023): Found entity 1: mux_4_para_1_7bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1_7bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file mux_4_para_1_8bits.v
+    Info (12023): Found entity 1: mux_4_para_1_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1_8bits.v Line: 4
+Warning (12019): Can't analyze file -- file pilha_rpn.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file registrador_8bits.v
+    Info (12023): Found entity 1: registrador_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/registrador_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file registrador_memoria.v
+    Info (12023): Found entity 1: registrador_memoria File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/registrador_memoria.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file shift_register_8bits.v
+    Info (12023): Found entity 1: shift_register_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/shift_register_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file somador_8bits.v
+    Info (12023): Found entity 1: somador_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/somador_8bits.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file subtrator_8bits.v
+    Info (12023): Found entity 1: subtrator_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/subtrator_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file ula_8bits.v
+    Info (12023): Found entity 1: ula_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file unidade_and_8bits.v
+    Info (12023): Found entity 1: unidade_and_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_and_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file unidade_not_8bits.v
+    Info (12023): Found entity 1: unidade_not_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_not_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file unidade_or_8bits.v
+    Info (12023): Found entity 1: unidade_or_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_or_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file unidade_xor_8bits.v
+    Info (12023): Found entity 1: unidade_xor_8bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/unidade_xor_8bits.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file sistema_rpn_completo.v
+    Info (12023): Found entity 1: sistema_rpn_completo File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/sistema_rpn_completo.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file contador_2bits_v2.v
+    Info (12023): Found entity 1: contador_2bits_v2 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_2bits_v2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file atualiza_count.v
+    Info (12023): Found entity 1: atualiza_count File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/atualiza_count.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file contador_estados_calculadora.v
+    Info (12023): Found entity 1: contador_estados_calculadora File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_estados_calculadora.v Line: 3
+Info (12021): Found 3 design units, including 3 entities, in source file add_3_if_greater_than_4.v
+    Info (12023): Found entity 1: add_3_if_greater_than_4 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/add_3_if_greater_than_4.v Line: 2
+    Info (12023): Found entity 2: adder_4bit File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/add_3_if_greater_than_4.v Line: 37
+    Info (12023): Found entity 3: mux2_1_4bit File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/add_3_if_greater_than_4.v Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file bin_to_bcd_8bit_v2.v
+    Info (12023): Found entity 1: bin_to_bcd_8bit_v2 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/bin_to_bcd_8bit_v2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bin_to_bcd_8bit_v3.v
+    Info (12023): Found entity 1: bin_to_bcd_8bit_v3 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/bin_to_bcd_8bit_v3.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file divisao_5por4.v
+    Info (12023): Found entity 1: divisao_5por4 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/divisao_5por4.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mutiplicacao_5x4.v
+    Info (12023): Found entity 1: mutiplicacao_5x4 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mutiplicacao_5x4.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file contador_push_2bits.v
+    Info (12023): Found entity 1: contador_push_2bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_push_2bits.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file somador_16bits.v
+    Info (12023): Found entity 1: somador_16bits File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/somador_16bits.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file multiplicador_4x4.v
+    Info (12023): Found entity 1: multiplicador_4x4 File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_4x4.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file multiplicador_8x8_recursivo .v
+    Info (12023): Found entity 1: multiplicador_8x8_recursivo File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_8x8_recursivo .v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file half_adder.v
+    Info (12023): Found entity 1: half_adder File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/half_adder.v Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at contador_1bit.v(34): created implicit net for "dec_inv" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_1bit.v Line: 34
+Warning (10236): Verilog HDL Implicit Net warning at contador_1bit.v(35): created implicit net for "inc_inv" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_1bit.v Line: 35
+Warning (10236): Verilog HDL Implicit Net warning at divisor_real.v(122): created implicit net for "load_resto_div" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/divisor_real.v Line: 122
+Warning (10236): Verilog HDL Implicit Net warning at contador_2bits_v2.v(31): created implicit net for "reset_final" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_2bits_v2.v Line: 31
+Critical Warning (10846): Verilog HDL Instantiation warning at sistema_rpn_completo.v(58): instance has no name File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/sistema_rpn_completo.v Line: 58
+Critical Warning (10846): Verilog HDL Instantiation warning at ula_8bits.v(104): instance has no name File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 104
+Info (12127): Elaborating entity "calculadora_rpn_completa" for the top level hierarchy
+Warning (10034): Output port "LEDR[1..0]" at calculadora_rpn_completa.v(19) has no driver File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 19
+Info (12128): Elaborating entity "sistema_rpn_completo" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 66
+Info (12128): Elaborating entity "contador_push_2bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/sistema_rpn_completo.v Line: 58
+Info (12128): Elaborating entity "flip_flop_d" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_EDGE_DETECT_FF" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_push_2bits.v Line: 25
+Info (12128): Elaborating entity "full_adder" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|full_adder:AD01" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/contador_push_2bits.v Line: 42
+Info (12128): Elaborating entity "registrador_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/sistema_rpn_completo.v Line: 89
+Info (12128): Elaborating entity "ula_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/sistema_rpn_completo.v Line: 137
+Info (12128): Elaborating entity "somador_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 66
+Info (12128): Elaborating entity "subtrator_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 72
+Info (12128): Elaborating entity "multiplicador_8x8_recursivo" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 91
+Info (12128): Elaborating entity "multiplicador_4x4" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_8x8_recursivo .v Line: 17
+Info (12128): Elaborating entity "half_adder" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|half_adder:HA0_1" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_4x4.v Line: 34
+Info (12128): Elaborating entity "somador_16bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/multiplicador_8x8_recursivo .v Line: 52
+Info (12128): Elaborating entity "divisao_5por4" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|divisao_5por4:comb_18" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 104
+Warning (10036): Verilog HDL or VHDL warning at divisao_5por4.v(10): object "gnd" assigned a value but never read File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/divisao_5por4.v Line: 10
+Info (12128): Elaborating entity "unidade_and_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_and_8bits:U_AND" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 119
+Info (12128): Elaborating entity "unidade_or_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_or_8bits:U_OR" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 124
+Info (12128): Elaborating entity "unidade_xor_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_xor_8bits:U_XOR" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 129
+Info (12128): Elaborating entity "unidade_not_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_not_8bits:U_NOT" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 134
+Info (12128): Elaborating entity "mux_8_para_1_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 152
+Warning (10036): Verilog HDL or VHDL warning at mux_8_para_1_8bits.v(8): object "gnd" assigned a value but never read File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_8_para_1_8bits.v Line: 8
+Info (12128): Elaborating entity "mux_8_para_1" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT0" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_8_para_1_8bits.v Line: 15
+Info (12128): Elaborating entity "mux_2_para_1_8bits" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/sistema_rpn_completo.v Line: 153
+Info (12128): Elaborating entity "mux_2_para_1" for hierarchy "sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT0" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_2_para_1_8bits.v Line: 13
+Info (12128): Elaborating entity "conversor_bases" for hierarchy "conversor_bases:U_CONVERSOR" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 77
+Info (12128): Elaborating entity "bin_to_bcd_8bit_v3" for hierarchy "conversor_bases:U_CONVERSOR|bin_to_bcd_8bit_v3:U_BCD" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/conversor_bases.v Line: 39
+Info (12128): Elaborating entity "mux_4_para_1_4bits" for hierarchy "conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/conversor_bases.v Line: 84
+Info (12128): Elaborating entity "mux_4_para_1" for hierarchy "conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT0" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/mux_4_para_1_4bits.v Line: 14
+Info (12128): Elaborating entity "decodificador_7seg" for hierarchy "conversor_bases:U_CONVERSOR|decodificador_7seg:U_DECOD_UNIDADE" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/conversor_bases.v Line: 107
+Info (12128): Elaborating entity "base_7seg" for hierarchy "base_7seg:U_BASE_DISPLAY" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 85
+Info (12128): Elaborating entity "mux_4_para_1_7bits" for hierarchy "base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE" File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/base_7seg.v Line: 58
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|resultado_div[7]" is missing source, defaulting to GND File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 18
+    Warning (12110): Net "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|resultado_div[6]" is missing source, defaulting to GND File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 18
+    Warning (12110): Net "sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|resultado_div[5]" is missing source, defaulting to GND File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/ula_8bits.v Line: 18
+Info (13014): Ignored 87 buffer(s)
+    Info (13019): Ignored 87 SOFT buffer(s)
+Warning (12241): 16 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 14
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 19
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/calculadora_rpn_completa.v Line: 19
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/output_files/PBL1.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 520 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 38 output pins
+    Info (21061): Implemented 469 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 464 megabytes
+    Info: Processing ended: Fri Oct 17 11:14:24 2025
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:15
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/aluno/Imagens/ula_project-main-antigo/ula_project-main-16-10/output_files/PBL1.map.smsg.
+
+

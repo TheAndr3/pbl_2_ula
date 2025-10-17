@@ -1,0 +1,5183 @@
+|calculadora_rpn_completa
+SW[0] => entrada_numero[0].IN1
+SW[1] => entrada_numero[1].IN1
+SW[2] => entrada_numero[2].IN1
+SW[3] => entrada_numero[3].IN1
+SW[4] => entrada_numero[4].IN1
+SW[5] => entrada_numero[5].IN1
+SW[6] => entrada_numero[6].IN1
+SW[7] => entrada_numero[7].IN1
+SW[8] => base_exibicao[0].IN2
+SW[9] => base_exibicao[1].IN2
+KEY[0] => push_pilha.IN1
+KEY[1] => executar_operacao.IN1
+CLOCK_50 => CLOCK_50.IN1
+HEX0[0] << conversor_bases:U_CONVERSOR.HEX0
+HEX0[1] << conversor_bases:U_CONVERSOR.HEX0
+HEX0[2] << conversor_bases:U_CONVERSOR.HEX0
+HEX0[3] << conversor_bases:U_CONVERSOR.HEX0
+HEX0[4] << conversor_bases:U_CONVERSOR.HEX0
+HEX0[5] << conversor_bases:U_CONVERSOR.HEX0
+HEX0[6] << conversor_bases:U_CONVERSOR.HEX0
+HEX1[0] << conversor_bases:U_CONVERSOR.HEX1
+HEX1[1] << conversor_bases:U_CONVERSOR.HEX1
+HEX1[2] << conversor_bases:U_CONVERSOR.HEX1
+HEX1[3] << conversor_bases:U_CONVERSOR.HEX1
+HEX1[4] << conversor_bases:U_CONVERSOR.HEX1
+HEX1[5] << conversor_bases:U_CONVERSOR.HEX1
+HEX1[6] << conversor_bases:U_CONVERSOR.HEX1
+HEX2[0] << conversor_bases:U_CONVERSOR.HEX2
+HEX2[1] << conversor_bases:U_CONVERSOR.HEX2
+HEX2[2] << conversor_bases:U_CONVERSOR.HEX2
+HEX2[3] << conversor_bases:U_CONVERSOR.HEX2
+HEX2[4] << conversor_bases:U_CONVERSOR.HEX2
+HEX2[5] << conversor_bases:U_CONVERSOR.HEX2
+HEX2[6] << conversor_bases:U_CONVERSOR.HEX2
+HEX5[0] << base_7seg:U_BASE_DISPLAY.HEX5
+HEX5[1] << base_7seg:U_BASE_DISPLAY.HEX5
+HEX5[2] << base_7seg:U_BASE_DISPLAY.HEX5
+HEX5[3] << base_7seg:U_BASE_DISPLAY.HEX5
+HEX5[4] << base_7seg:U_BASE_DISPLAY.HEX5
+HEX5[5] << base_7seg:U_BASE_DISPLAY.HEX5
+HEX5[6] << base_7seg:U_BASE_DISPLAY.HEX5
+LEDR[0] << <GND>
+LEDR[1] << <GND>
+LEDR[2] << U_LED2.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] << U_LED3.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] << U_LED4.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] << U_LED5.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] << U_LED6.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] << U_LED7.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[8] << U_LED8.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[9] << U_LED9.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN
+entrada_numero[0] => entrada_numero[0].IN4
+entrada_numero[1] => entrada_numero[1].IN4
+entrada_numero[2] => entrada_numero[2].IN4
+entrada_numero[3] => entrada_numero[3].IN4
+entrada_numero[4] => entrada_numero[4].IN4
+entrada_numero[5] => entrada_numero[5].IN4
+entrada_numero[6] => entrada_numero[6].IN4
+entrada_numero[7] => entrada_numero[7].IN4
+push_pilha => push_pilha.IN1
+executar_operacao => executar_operacao.IN1
+clk => clk.IN5
+rst => rst.IN4
+valor_exibicao[0] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+valor_exibicao[1] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+valor_exibicao[2] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+valor_exibicao[3] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+valor_exibicao[4] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+valor_exibicao[5] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+valor_exibicao[6] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+valor_exibicao[7] <= mux_2_para_1_8bits:U_MUX_EXIBICAO.Y
+estado_contador[0] <= contador_push_2bits:comb_7.count
+estado_contador[1] <= contador_push_2bits:comb_7.count
+entrada_numero_a <= U_ENTRADA_A.DB_MAX_OUTPUT_PORT_TYPE
+entrada_numero_b <= U_ENTRADA_B.DB_MAX_OUTPUT_PORT_TYPE
+entrada_operacao <= U_ENTRADA_OP.DB_MAX_OUTPUT_PORT_TYPE
+codigo_operacao[0] <= codigo_operacao[0].DB_MAX_OUTPUT_PORT_TYPE
+codigo_operacao[1] <= codigo_operacao[1].DB_MAX_OUTPUT_PORT_TYPE
+codigo_operacao[2] <= codigo_operacao[2].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[0] <= resultado_ula[0].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[1] <= resultado_ula[1].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[2] <= resultado_ula[2].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[3] <= resultado_ula[3].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[4] <= resultado_ula[4].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[5] <= resultado_ula[5].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[6] <= resultado_ula[6].DB_MAX_OUTPUT_PORT_TYPE
+resultado_ula[7] <= resultado_ula[7].DB_MAX_OUTPUT_PORT_TYPE
+overflow <= ula_8bits:U_ULA.overflow
+zero <= ula_8bits:U_ULA.zero
+carry_out <= ula_8bits:U_ULA.carry_out
+erro <= ula_8bits:U_ULA.erro
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7
+push_debounced => push_debounced.IN1
+clk => clk.IN3
+rst_n => rst_n.IN3
+count[0] <= BUF_OUT0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= BUF_OUT1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_EDGE_DETECT_FF
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|full_adder:AD01
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|full_adder:AD02
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT0
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|contador_push_2bits:comb_7|flip_flop_d:U_REG_COUNT1
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A
+D[0] => U_EN_D0.IN0
+D[1] => U_EN_D1.IN0
+D[2] => U_EN_D2.IN0
+D[3] => U_EN_D3.IN0
+D[4] => U_EN_D4.IN0
+D[5] => U_EN_D5.IN0
+D[6] => U_EN_D6.IN0
+D[7] => U_EN_D7.IN0
+clk => clk.IN8
+rst => rst.IN8
+enable => U_EN_D0.IN1
+enable => U_EN_D1.IN1
+enable => U_EN_D2.IN1
+enable => U_EN_D3.IN1
+enable => U_EN_D4.IN1
+enable => U_EN_D5.IN1
+enable => U_EN_D6.IN1
+enable => U_EN_D7.IN1
+enable => U_NOT_ENABLE1.DATAIN
+enable => U_NOT_ENABLE2.DATAIN
+enable => U_NOT_ENABLE3.DATAIN
+enable => U_NOT_ENABLE4.DATAIN
+enable => U_NOT_ENABLE5.DATAIN
+enable => U_NOT_ENABLE6.DATAIN
+enable => U_NOT_ENABLE7.DATAIN
+enable => U_NOT_EN_Q0.IN1
+Q[0] <= flip_flop_d:U_FF0.Q
+Q[1] <= flip_flop_d:U_FF1.Q
+Q[2] <= flip_flop_d:U_FF2.Q
+Q[3] <= flip_flop_d:U_FF3.Q
+Q[4] <= flip_flop_d:U_FF4.Q
+Q[5] <= flip_flop_d:U_FF5.Q
+Q[6] <= flip_flop_d:U_FF6.Q
+Q[7] <= flip_flop_d:U_FF7.Q
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF0
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF1
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF2
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF3
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF4
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF5
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF6
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_A|flip_flop_d:U_FF7
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B
+D[0] => U_EN_D0.IN0
+D[1] => U_EN_D1.IN0
+D[2] => U_EN_D2.IN0
+D[3] => U_EN_D3.IN0
+D[4] => U_EN_D4.IN0
+D[5] => U_EN_D5.IN0
+D[6] => U_EN_D6.IN0
+D[7] => U_EN_D7.IN0
+clk => clk.IN8
+rst => rst.IN8
+enable => U_EN_D0.IN1
+enable => U_EN_D1.IN1
+enable => U_EN_D2.IN1
+enable => U_EN_D3.IN1
+enable => U_EN_D4.IN1
+enable => U_EN_D5.IN1
+enable => U_EN_D6.IN1
+enable => U_EN_D7.IN1
+enable => U_NOT_ENABLE1.DATAIN
+enable => U_NOT_ENABLE2.DATAIN
+enable => U_NOT_ENABLE3.DATAIN
+enable => U_NOT_ENABLE4.DATAIN
+enable => U_NOT_ENABLE5.DATAIN
+enable => U_NOT_ENABLE6.DATAIN
+enable => U_NOT_ENABLE7.DATAIN
+enable => U_NOT_EN_Q0.IN1
+Q[0] <= flip_flop_d:U_FF0.Q
+Q[1] <= flip_flop_d:U_FF1.Q
+Q[2] <= flip_flop_d:U_FF2.Q
+Q[3] <= flip_flop_d:U_FF3.Q
+Q[4] <= flip_flop_d:U_FF4.Q
+Q[5] <= flip_flop_d:U_FF5.Q
+Q[6] <= flip_flop_d:U_FF6.Q
+Q[7] <= flip_flop_d:U_FF7.Q
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF0
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF1
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF2
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF3
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF4
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF5
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF6
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_B|flip_flop_d:U_FF7
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP
+D[0] => U_EN_D0.IN0
+D[1] => U_EN_D1.IN0
+D[2] => U_EN_D2.IN0
+D[3] => U_EN_D3.IN0
+D[4] => U_EN_D4.IN0
+D[5] => U_EN_D5.IN0
+D[6] => U_EN_D6.IN0
+D[7] => U_EN_D7.IN0
+clk => clk.IN8
+rst => rst.IN8
+enable => U_EN_D0.IN1
+enable => U_EN_D1.IN1
+enable => U_EN_D2.IN1
+enable => U_EN_D3.IN1
+enable => U_EN_D4.IN1
+enable => U_EN_D5.IN1
+enable => U_EN_D6.IN1
+enable => U_EN_D7.IN1
+enable => U_NOT_ENABLE1.DATAIN
+enable => U_NOT_ENABLE2.DATAIN
+enable => U_NOT_ENABLE3.DATAIN
+enable => U_NOT_ENABLE4.DATAIN
+enable => U_NOT_ENABLE5.DATAIN
+enable => U_NOT_ENABLE6.DATAIN
+enable => U_NOT_ENABLE7.DATAIN
+enable => U_NOT_EN_Q0.IN1
+Q[0] <= flip_flop_d:U_FF0.Q
+Q[1] <= flip_flop_d:U_FF1.Q
+Q[2] <= flip_flop_d:U_FF2.Q
+Q[3] <= flip_flop_d:U_FF3.Q
+Q[4] <= flip_flop_d:U_FF4.Q
+Q[5] <= flip_flop_d:U_FF5.Q
+Q[6] <= flip_flop_d:U_FF6.Q
+Q[7] <= flip_flop_d:U_FF7.Q
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF0
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF1
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF2
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF3
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF4
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF5
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF6
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|registrador_8bits:U_REG_OP|flip_flop_d:U_FF7
+D => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+rst => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Qn <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA
+a[0] => a[0].IN8
+a[1] => a[1].IN8
+a[2] => a[2].IN8
+a[3] => a[3].IN8
+a[4] => a[4].IN8
+a[5] => a[5].IN7
+a[6] => a[6].IN7
+a[7] => a[7].IN7
+b[0] => b[0].IN7
+b[1] => b[1].IN7
+b[2] => b[2].IN7
+b[3] => b[3].IN7
+b[4] => b[4].IN6
+b[5] => b[5].IN6
+b[6] => b[6].IN6
+b[7] => b[7].IN6
+operacao[0] => operacao[0].IN4
+operacao[1] => operacao[1].IN4
+operacao[2] => operacao[2].IN4
+clk => ~NO_FANOUT~
+rst => ~NO_FANOUT~
+resultado[0] <= U_RESULT0.DB_MAX_OUTPUT_PORT_TYPE
+resultado[1] <= U_RESULT1.DB_MAX_OUTPUT_PORT_TYPE
+resultado[2] <= U_RESULT2.DB_MAX_OUTPUT_PORT_TYPE
+resultado[3] <= U_RESULT3.DB_MAX_OUTPUT_PORT_TYPE
+resultado[4] <= U_RESULT4.DB_MAX_OUTPUT_PORT_TYPE
+resultado[5] <= U_RESULT5.DB_MAX_OUTPUT_PORT_TYPE
+resultado[6] <= U_RESULT6.DB_MAX_OUTPUT_PORT_TYPE
+resultado[7] <= U_RESULT7.DB_MAX_OUTPUT_PORT_TYPE
+overflow <= mux_8_para_1:U_MUX_OV.Y
+zero <= U_ZERO.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= mux_8_para_1:U_MUX_COUT.Y
+erro <= mux_8_para_1:U_MUX_ERR.Y
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+cin => cin.IN1
+s[0] <= full_adder:U_FA0.s
+s[1] <= full_adder:U_FA1.s
+s[2] <= full_adder:U_FA2.s
+s[3] <= full_adder:U_FA3.s
+s[4] <= full_adder:U_FA4.s
+s[5] <= full_adder:U_FA5.s
+s[6] <= full_adder:U_FA6.s
+s[7] <= full_adder:U_FA7.s
+cout <= U_COUT.DB_MAX_OUTPUT_PORT_TYPE
+ov <= U_OVERFLOW.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA0
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA5
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA6
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|somador_8bits:U_SOMA|full_adder:U_FA7
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+b[0] => b_not[0].IN1
+b[1] => b_not[1].IN1
+b[2] => b_not[2].IN1
+b[3] => b_not[3].IN1
+b[4] => b_not[4].IN1
+b[5] => b_not[5].IN1
+b[6] => b_not[6].IN1
+b[7] => b_not[7].IN1
+s[0] <= somador_8bits:U_SUB.s
+s[1] <= somador_8bits:U_SUB.s
+s[2] <= somador_8bits:U_SUB.s
+s[3] <= somador_8bits:U_SUB.s
+s[4] <= somador_8bits:U_SUB.s
+s[5] <= somador_8bits:U_SUB.s
+s[6] <= somador_8bits:U_SUB.s
+s[7] <= somador_8bits:U_SUB.s
+cout <= somador_8bits:U_SUB.cout
+ov <= somador_8bits:U_SUB.ov
+neg <= U_NEG.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+cin => cin.IN1
+s[0] <= full_adder:U_FA0.s
+s[1] <= full_adder:U_FA1.s
+s[2] <= full_adder:U_FA2.s
+s[3] <= full_adder:U_FA3.s
+s[4] <= full_adder:U_FA4.s
+s[5] <= full_adder:U_FA5.s
+s[6] <= full_adder:U_FA6.s
+s[7] <= full_adder:U_FA7.s
+cout <= U_COUT.DB_MAX_OUTPUT_PORT_TYPE
+ov <= U_OVERFLOW.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA0
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA5
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA6
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_ADD_1|full_adder:U_FA7
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+cin => cin.IN1
+s[0] <= full_adder:U_FA0.s
+s[1] <= full_adder:U_FA1.s
+s[2] <= full_adder:U_FA2.s
+s[3] <= full_adder:U_FA3.s
+s[4] <= full_adder:U_FA4.s
+s[5] <= full_adder:U_FA5.s
+s[6] <= full_adder:U_FA6.s
+s[7] <= full_adder:U_FA7.s
+cout <= U_COUT.DB_MAX_OUTPUT_PORT_TYPE
+ov <= U_OVERFLOW.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA0
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA5
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA6
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|subtrator_8bits:U_SUB|somador_8bits:U_SUB|full_adder:U_FA7
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT
+a[0] => a0[0].IN2
+a[1] => a0[1].IN2
+a[2] => a0[2].IN2
+a[3] => a0[3].IN2
+a[4] => a1[0].IN2
+a[5] => a1[1].IN2
+a[6] => a1[2].IN2
+a[7] => a1[3].IN2
+b[0] => b0[0].IN2
+b[1] => b0[1].IN2
+b[2] => b0[2].IN2
+b[3] => b0[3].IN2
+b[4] => b1[0].IN2
+b[5] => b1[1].IN2
+b[6] => b1[2].IN2
+b[7] => b1[3].IN2
+p[0] <= somador_16bits:ADD_FINAL2.s
+p[1] <= somador_16bits:ADD_FINAL2.s
+p[2] <= somador_16bits:ADD_FINAL2.s
+p[3] <= somador_16bits:ADD_FINAL2.s
+p[4] <= somador_16bits:ADD_FINAL2.s
+p[5] <= somador_16bits:ADD_FINAL2.s
+p[6] <= somador_16bits:ADD_FINAL2.s
+p[7] <= somador_16bits:ADD_FINAL2.s
+p[8] <= somador_16bits:ADD_FINAL2.s
+p[9] <= somador_16bits:ADD_FINAL2.s
+p[10] <= somador_16bits:ADD_FINAL2.s
+p[11] <= somador_16bits:ADD_FINAL2.s
+p[12] <= somador_16bits:ADD_FINAL2.s
+p[13] <= somador_16bits:ADD_FINAL2.s
+p[14] <= somador_16bits:ADD_FINAL2.s
+p[15] <= somador_16bits:ADD_FINAL2.s
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+p[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+p[1] <= half_adder:HA0_1.s
+p[2] <= full_adder:FA1_1.s
+p[3] <= full_adder:FA2_1.s
+p[4] <= half_adder:HA3_1.s
+p[5] <= full_adder:FA3_2.s
+p[6] <= full_adder:FA3_3.s
+p[7] <= full_adder:FA3_3.cout
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|half_adder:HA0_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA0_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA0_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|half_adder:HA0_4
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA1_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA2_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|half_adder:HA3_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA3_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B1|full_adder:FA3_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+p[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+p[1] <= half_adder:HA0_1.s
+p[2] <= full_adder:FA1_1.s
+p[3] <= full_adder:FA2_1.s
+p[4] <= half_adder:HA3_1.s
+p[5] <= full_adder:FA3_2.s
+p[6] <= full_adder:FA3_3.s
+p[7] <= full_adder:FA3_3.cout
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|half_adder:HA0_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA0_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA0_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|half_adder:HA0_4
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA1_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA2_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|half_adder:HA3_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA3_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A1B0|full_adder:FA3_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+p[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+p[1] <= half_adder:HA0_1.s
+p[2] <= full_adder:FA1_1.s
+p[3] <= full_adder:FA2_1.s
+p[4] <= half_adder:HA3_1.s
+p[5] <= full_adder:FA3_2.s
+p[6] <= full_adder:FA3_3.s
+p[7] <= full_adder:FA3_3.cout
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|half_adder:HA0_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA0_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA0_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|half_adder:HA0_4
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA1_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA2_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|half_adder:HA3_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA3_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B1|full_adder:FA3_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+a[3] => comb.IN0
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+p[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+p[1] <= half_adder:HA0_1.s
+p[2] <= full_adder:FA1_1.s
+p[3] <= full_adder:FA2_1.s
+p[4] <= half_adder:HA3_1.s
+p[5] <= full_adder:FA3_2.s
+p[6] <= full_adder:FA3_3.s
+p[7] <= full_adder:FA3_3.cout
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|half_adder:HA0_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA0_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA0_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|half_adder:HA0_4
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA1_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA2_4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|half_adder:HA3_1
+a => comb.IN0
+a => comb.IN0
+b => comb.IN1
+b => comb.IN1
+s <= comb.DB_MAX_OUTPUT_PORT_TYPE
+cout <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA3_2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|multiplicador_4x4:U_MULT_A0B0|full_adder:FA3_3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+cin => cin.IN1
+s[0] <= full_adder:U_FA0.s
+s[1] <= full_adder:U_FA1.s
+s[2] <= full_adder:U_FA2.s
+s[3] <= full_adder:U_FA3.s
+s[4] <= full_adder:U_FA4.s
+s[5] <= full_adder:U_FA5.s
+s[6] <= full_adder:U_FA6.s
+s[7] <= full_adder:U_FA7.s
+cout <= U_COUT.DB_MAX_OUTPUT_PORT_TYPE
+ov <= U_OVERFLOW.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA0
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA5
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA6
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_8bits:ADD_MID|full_adder:U_FA7
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+a[8] => a[8].IN1
+a[9] => a[9].IN1
+a[10] => a[10].IN1
+a[11] => a[11].IN1
+a[12] => a[12].IN1
+a[13] => a[13].IN1
+a[14] => a[14].IN1
+a[15] => a[15].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+b[8] => b[8].IN1
+b[9] => b[9].IN1
+b[10] => b[10].IN1
+b[11] => b[11].IN1
+b[12] => b[12].IN1
+b[13] => b[13].IN1
+b[14] => b[14].IN1
+b[15] => b[15].IN1
+cin => cin.IN1
+s[0] <= full_adder:U_FA0.s
+s[1] <= full_adder:U_FA1.s
+s[2] <= full_adder:U_FA2.s
+s[3] <= full_adder:U_FA3.s
+s[4] <= full_adder:U_FA4.s
+s[5] <= full_adder:U_FA5.s
+s[6] <= full_adder:U_FA6.s
+s[7] <= full_adder:U_FA7.s
+s[8] <= full_adder:U_FA8.s
+s[9] <= full_adder:U_FA9.s
+s[10] <= full_adder:U_FA10.s
+s[11] <= full_adder:U_FA11.s
+s[12] <= full_adder:U_FA12.s
+s[13] <= full_adder:U_FA13.s
+s[14] <= full_adder:U_FA14.s
+s[15] <= full_adder:U_FA15.s
+cout <= U_COUT.DB_MAX_OUTPUT_PORT_TYPE
+ov <= U_OV.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA0
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA5
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA6
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA7
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA8
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA9
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA10
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA11
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA12
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA13
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA14
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL1|full_adder:U_FA15
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+a[8] => a[8].IN1
+a[9] => a[9].IN1
+a[10] => a[10].IN1
+a[11] => a[11].IN1
+a[12] => a[12].IN1
+a[13] => a[13].IN1
+a[14] => a[14].IN1
+a[15] => a[15].IN1
+b[0] => b[0].IN1
+b[1] => b[1].IN1
+b[2] => b[2].IN1
+b[3] => b[3].IN1
+b[4] => b[4].IN1
+b[5] => b[5].IN1
+b[6] => b[6].IN1
+b[7] => b[7].IN1
+b[8] => b[8].IN1
+b[9] => b[9].IN1
+b[10] => b[10].IN1
+b[11] => b[11].IN1
+b[12] => b[12].IN1
+b[13] => b[13].IN1
+b[14] => b[14].IN1
+b[15] => b[15].IN1
+cin => cin.IN1
+s[0] <= full_adder:U_FA0.s
+s[1] <= full_adder:U_FA1.s
+s[2] <= full_adder:U_FA2.s
+s[3] <= full_adder:U_FA3.s
+s[4] <= full_adder:U_FA4.s
+s[5] <= full_adder:U_FA5.s
+s[6] <= full_adder:U_FA6.s
+s[7] <= full_adder:U_FA7.s
+s[8] <= full_adder:U_FA8.s
+s[9] <= full_adder:U_FA9.s
+s[10] <= full_adder:U_FA10.s
+s[11] <= full_adder:U_FA11.s
+s[12] <= full_adder:U_FA12.s
+s[13] <= full_adder:U_FA13.s
+s[14] <= full_adder:U_FA14.s
+s[15] <= full_adder:U_FA15.s
+cout <= U_COUT.DB_MAX_OUTPUT_PORT_TYPE
+ov <= U_OV.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA0
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA1
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA2
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA3
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA4
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA5
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA6
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA7
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA8
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA9
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA10
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA11
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA12
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA13
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA14
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|multiplicador_8x8_recursivo:U_MULT|somador_16bits:ADD_FINAL2|full_adder:U_FA15
+a => U8_or_s.IN1
+a => U10_and_c2.IN0
+a => U11_and_c3.IN0
+b => term_s1.IN0
+b => U9_and_c1.IN0
+b => U11_and_c3.IN1
+cin => term_s1.IN1
+cin => U9_and_c1.IN1
+cin => U10_and_c2.IN1
+s <= U8_or_s.DB_MAX_OUTPUT_PORT_TYPE
+cout <= U12_or_c.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|divisao_5por4:comb_18
+a[0] => d1.IN0
+a[0] => d3.IN0
+a[0] => d4.IN0
+a[0] => d10.IN0
+a[0] => d11.IN0
+a[0] => d15.IN0
+a[0] => d16.IN0
+a[0] => d21.IN0
+a[0] => d30.IN0
+a[0] => d31.IN0
+a[0] => d20.IN0
+a[0] => d22.IN0
+a[0] => d24.IN0
+a[0] => d27.IN0
+a[0] => d29.IN0
+a[0] => d40.IN0
+a[0] => d41.IN0
+a[0] => d42.IN0
+a[0] => d46.IN0
+a[0] => d47.IN0
+a[0] => d49.IN0
+a[0] => d4s4.IN0
+a[1] => d1.IN1
+a[1] => d5.IN0
+a[1] => d6.IN0
+a[1] => d10.IN1
+a[1] => d11.IN1
+a[1] => d12.IN0
+a[1] => d14.IN0
+a[1] => d17.IN0
+a[1] => d18.IN0
+a[1] => d19.IN0
+a[1] => d21.IN1
+a[1] => d23.IN0
+a[1] => d30.IN1
+a[1] => d32.IN0
+a[1] => d33.IN0
+a[1] => d36.IN0
+a[1] => d37.IN0
+a[1] => d20.IN1
+a[1] => d22.IN1
+a[1] => d24.IN1
+a[1] => d25.IN0
+a[1] => d26.IN0
+a[1] => d27.IN1
+a[1] => d29.IN1
+a[1] => d40.IN1
+a[1] => d41.IN1
+a[1] => d42.IN1
+a[1] => d46.IN1
+a[1] => d47.IN1
+a[1] => d49.IN1
+a[1] => d4s4.IN1
+a[2] => d2.IN0
+a[2] => d7.IN0
+a[2] => d8.IN0
+a[2] => d10.IN2
+a[2] => d14.IN1
+a[2] => d15.IN1
+a[2] => d16.IN1
+a[2] => d18.IN1
+a[2] => d19.IN1
+a[2] => d21.IN2
+a[2] => d23.IN1
+a[2] => d30.IN2
+a[2] => d34.IN0
+a[2] => d35.IN0
+a[2] => d36.IN1
+a[2] => d37.IN1
+a[2] => d38.IN0
+a[2] => d43.IN0
+a[2] => d44.IN0
+a[2] => d11.IN2
+a[2] => d12.IN1
+a[2] => d13.IN0
+a[2] => d20.IN2
+a[2] => d22.IN2
+a[2] => d24.IN2
+a[2] => d25.IN1
+a[2] => d27.IN2
+a[2] => d29.IN2
+a[2] => d31.IN1
+a[2] => d39.IN0
+a[2] => d40.IN2
+a[2] => d41.IN2
+a[2] => d42.IN2
+a[2] => d46.IN2
+a[2] => d47.IN2
+a[2] => d49.IN2
+a[2] => d4s4.IN2
+a[3] => d1.IN2
+a[3] => d2.IN1
+a[3] => d3.IN1
+a[3] => d5.IN1
+a[3] => d7.IN1
+a[3] => d9.IN0
+a[3] => d10.IN3
+a[3] => d12.IN2
+a[3] => d13.IN1
+a[3] => d14.IN2
+a[3] => d15.IN2
+a[3] => d17.IN1
+a[3] => d18.IN2
+a[3] => d25.IN2
+a[3] => d26.IN1
+a[3] => d31.IN2
+a[3] => d32.IN1
+a[3] => d34.IN1
+a[3] => d36.IN2
+a[3] => d38.IN1
+a[3] => d39.IN1
+a[3] => d43.IN1
+a[3] => d45.IN0
+a[3] => d48.IN0
+a[3] => d16.IN2
+a[3] => d19.IN2
+a[3] => d20.IN3
+a[3] => d21.IN3
+a[3] => d22.IN3
+a[3] => d23.IN2
+a[3] => d24.IN3
+a[3] => d27.IN3
+a[3] => d29.IN3
+a[3] => d37.IN2
+a[3] => d40.IN3
+a[3] => d41.IN3
+a[3] => d42.IN3
+a[3] => d46.IN3
+a[3] => d47.IN3
+a[3] => d49.IN3
+a[3] => d4s4.IN3
+a[4] => d20.IN4
+a[4] => d22.IN4
+a[4] => d24.IN4
+a[4] => d27.IN4
+a[4] => d29.IN4
+a[4] => d40.IN4
+a[4] => d41.IN4
+a[4] => d42.IN4
+a[4] => d46.IN4
+a[4] => d47.IN4
+a[4] => d49.IN4
+a[4] => d4s4.IN4
+a[4] => d1.IN3
+a[4] => d2.IN2
+a[4] => d3.IN2
+a[4] => d4.IN1
+a[4] => d5.IN2
+a[4] => d6.IN1
+a[4] => d7.IN2
+a[4] => d8.IN1
+a[4] => d9.IN1
+a[4] => d10.IN4
+a[4] => d11.IN3
+a[4] => d12.IN3
+a[4] => d13.IN2
+a[4] => d14.IN3
+a[4] => d15.IN3
+a[4] => d16.IN3
+a[4] => d17.IN2
+a[4] => d18.IN3
+a[4] => d19.IN3
+a[4] => d21.IN4
+a[4] => d23.IN3
+a[4] => d25.IN3
+a[4] => d26.IN2
+a[4] => d30.IN3
+a[4] => d31.IN3
+a[4] => d32.IN2
+a[4] => d33.IN1
+a[4] => d34.IN2
+a[4] => d35.IN1
+a[4] => d36.IN3
+a[4] => d37.IN3
+a[4] => d38.IN2
+a[4] => d39.IN2
+a[4] => d43.IN2
+a[4] => d44.IN1
+a[4] => d45.IN1
+a[4] => d48.IN1
+b[0] => d24.IN5
+b[0] => d25.IN4
+b[0] => d26.IN3
+b[0] => d27.IN5
+b[0] => d29.IN5
+b[0] => d31.IN4
+b[0] => d39.IN3
+b[0] => d41.IN5
+b[0] => d47.IN5
+b[0] => U_B_IS_ZERO_NOR.IN0
+b[0] => d5.IN3
+b[0] => d6.IN2
+b[0] => d7.IN3
+b[0] => d8.IN2
+b[0] => d9.IN2
+b[0] => d18.IN4
+b[0] => d19.IN4
+b[0] => d34.IN3
+b[0] => d35.IN2
+b[0] => d42.IN5
+b[0] => d45.IN2
+b[0] => d46.IN5
+b[0] => d49.IN5
+b[1] => d12.IN4
+b[1] => d13.IN3
+b[1] => d22.IN5
+b[1] => d26.IN4
+b[1] => d27.IN6
+b[1] => d31.IN5
+b[1] => d39.IN4
+b[1] => d40.IN5
+b[1] => d47.IN6
+b[1] => U_B_IS_ZERO_NOR.IN1
+b[1] => d3.IN3
+b[1] => d4.IN2
+b[1] => d7.IN4
+b[1] => d8.IN3
+b[1] => d9.IN3
+b[1] => d14.IN4
+b[1] => d15.IN4
+b[1] => d16.IN4
+b[1] => d17.IN3
+b[1] => d23.IN4
+b[1] => d29.IN6
+b[1] => d30.IN4
+b[1] => d32.IN3
+b[1] => d33.IN2
+b[1] => d38.IN3
+b[1] => d42.IN6
+b[1] => d44.IN2
+b[1] => d46.IN6
+b[1] => d48.IN2
+b[1] => d4s4.IN5
+b[2] => d13.IN4
+b[2] => d20.IN5
+b[2] => d21.IN5
+b[2] => d23.IN5
+b[2] => d25.IN5
+b[2] => d26.IN5
+b[2] => d29.IN7
+b[2] => d36.IN4
+b[2] => d38.IN4
+b[2] => d40.IN6
+b[2] => d41.IN6
+b[2] => U_B_IS_ZERO_NOR.IN2
+b[2] => d1.IN4
+b[2] => d2.IN3
+b[2] => d3.IN4
+b[2] => d4.IN3
+b[2] => d5.IN4
+b[2] => d6.IN3
+b[2] => d9.IN4
+b[2] => d11.IN4
+b[2] => d17.IN4
+b[2] => d27.IN7
+b[2] => d33.IN3
+b[2] => d35.IN3
+b[2] => d37.IN4
+b[2] => d39.IN5
+b[2] => d42.IN7
+b[2] => d43.IN3
+b[2] => d44.IN3
+b[2] => d45.IN3
+b[2] => d47.IN7
+b[2] => d48.IN3
+b[2] => d49.IN6
+b[2] => d4s4.IN6
+b[3] => d2.IN4
+b[3] => d10.IN5
+b[3] => d14.IN5
+b[3] => d15.IN5
+b[3] => d17.IN5
+b[3] => d18.IN5
+b[3] => d20.IN6
+b[3] => d22.IN6
+b[3] => d24.IN6
+b[3] => U_B_IS_ZERO_NOR.IN3
+b[3] => d4.IN4
+b[3] => d6.IN4
+b[3] => d8.IN4
+b[3] => d11.IN5
+b[3] => d12.IN5
+b[3] => d13.IN5
+b[3] => d16.IN5
+b[3] => d19.IN5
+b[3] => d21.IN6
+b[3] => d23.IN6
+b[3] => d25.IN6
+b[3] => d26.IN6
+b[3] => d30.IN5
+b[3] => d31.IN6
+b[3] => d32.IN4
+b[3] => d33.IN4
+b[3] => d34.IN4
+b[3] => d35.IN4
+b[3] => d36.IN5
+b[3] => d37.IN5
+b[3] => d38.IN5
+b[3] => d39.IN6
+b[3] => d40.IN7
+b[3] => d41.IN7
+b[3] => d43.IN4
+b[3] => d44.IN4
+b[3] => d45.IN4
+b[3] => d46.IN7
+b[3] => d47.IN8
+b[3] => d48.IN4
+b[3] => d49.IN7
+b[3] => d4s4.IN7
+s[0] <= U_S0_OUT.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= U_S1_OUT.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= U_S2_OUT.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= U_S3_OUT.DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= U_S4_OUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_and_8bits:U_AND
+a[0] => U_AND0.IN0
+a[1] => U_AND1.IN0
+a[2] => U_AND2.IN0
+a[3] => U_AND3.IN0
+a[4] => U_AND4.IN0
+a[5] => U_AND5.IN0
+a[6] => U_AND6.IN0
+a[7] => U_AND7.IN0
+b[0] => U_AND0.IN1
+b[1] => U_AND1.IN1
+b[2] => U_AND2.IN1
+b[3] => U_AND3.IN1
+b[4] => U_AND4.IN1
+b[5] => U_AND5.IN1
+b[6] => U_AND6.IN1
+b[7] => U_AND7.IN1
+s[0] <= U_AND0.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= U_AND1.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= U_AND2.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= U_AND3.DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= U_AND4.DB_MAX_OUTPUT_PORT_TYPE
+s[5] <= U_AND5.DB_MAX_OUTPUT_PORT_TYPE
+s[6] <= U_AND6.DB_MAX_OUTPUT_PORT_TYPE
+s[7] <= U_AND7.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_or_8bits:U_OR
+a[0] => U_OR0.IN0
+a[1] => U_OR1.IN0
+a[2] => U_OR2.IN0
+a[3] => U_OR3.IN0
+a[4] => U_OR4.IN0
+a[5] => U_OR5.IN0
+a[6] => U_OR6.IN0
+a[7] => U_OR7.IN0
+b[0] => U_OR0.IN1
+b[1] => U_OR1.IN1
+b[2] => U_OR2.IN1
+b[3] => U_OR3.IN1
+b[4] => U_OR4.IN1
+b[5] => U_OR5.IN1
+b[6] => U_OR6.IN1
+b[7] => U_OR7.IN1
+s[0] <= U_OR0.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= U_OR1.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= U_OR2.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= U_OR3.DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= U_OR4.DB_MAX_OUTPUT_PORT_TYPE
+s[5] <= U_OR5.DB_MAX_OUTPUT_PORT_TYPE
+s[6] <= U_OR6.DB_MAX_OUTPUT_PORT_TYPE
+s[7] <= U_OR7.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_xor_8bits:U_XOR
+a[0] => U_XOR0.IN0
+a[1] => U_XOR1.IN0
+a[2] => U_XOR2.IN0
+a[3] => U_XOR3.IN0
+a[4] => U_XOR4.IN0
+a[5] => U_XOR5.IN0
+a[6] => U_XOR6.IN0
+a[7] => U_XOR7.IN0
+b[0] => U_XOR0.IN1
+b[1] => U_XOR1.IN1
+b[2] => U_XOR2.IN1
+b[3] => U_XOR3.IN1
+b[4] => U_XOR4.IN1
+b[5] => U_XOR5.IN1
+b[6] => U_XOR6.IN1
+b[7] => U_XOR7.IN1
+s[0] <= U_XOR0.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= U_XOR1.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= U_XOR2.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= U_XOR3.DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= U_XOR4.DB_MAX_OUTPUT_PORT_TYPE
+s[5] <= U_XOR5.DB_MAX_OUTPUT_PORT_TYPE
+s[6] <= U_XOR6.DB_MAX_OUTPUT_PORT_TYPE
+s[7] <= U_XOR7.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|unidade_not_8bits:U_NOT
+a[0] => s[0].DATAIN
+a[1] => s[1].DATAIN
+a[2] => s[2].DATAIN
+a[3] => s[3].DATAIN
+a[4] => s[4].DATAIN
+a[5] => s[5].DATAIN
+a[6] => s[6].DATAIN
+a[7] => s[7].DATAIN
+s[0] <= a[0].DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= a[1].DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= a[2].DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= a[3].DB_MAX_OUTPUT_PORT_TYPE
+s[4] <= a[4].DB_MAX_OUTPUT_PORT_TYPE
+s[5] <= a[5].DB_MAX_OUTPUT_PORT_TYPE
+s[6] <= a[6].DB_MAX_OUTPUT_PORT_TYPE
+s[7] <= a[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT
+D0[0] => D0[0].IN1
+D0[1] => D0[1].IN1
+D0[2] => D0[2].IN1
+D0[3] => D0[3].IN1
+D0[4] => D0[4].IN1
+D0[5] => D0[5].IN1
+D0[6] => D0[6].IN1
+D0[7] => D0[7].IN1
+D1[0] => D1[0].IN1
+D1[1] => D1[1].IN1
+D1[2] => D1[2].IN1
+D1[3] => D1[3].IN1
+D1[4] => D1[4].IN1
+D1[5] => D1[5].IN1
+D1[6] => D1[6].IN1
+D1[7] => D1[7].IN1
+D2[0] => D2[0].IN1
+D2[1] => D2[1].IN1
+D2[2] => D2[2].IN1
+D2[3] => D2[3].IN1
+D2[4] => D2[4].IN1
+D2[5] => D2[5].IN1
+D2[6] => D2[6].IN1
+D2[7] => D2[7].IN1
+D3[0] => D3[0].IN1
+D3[1] => D3[1].IN1
+D3[2] => D3[2].IN1
+D3[3] => D3[3].IN1
+D3[4] => D3[4].IN1
+D3[5] => D3[5].IN1
+D3[6] => D3[6].IN1
+D3[7] => D3[7].IN1
+D4[0] => D4[0].IN1
+D4[1] => D4[1].IN1
+D4[2] => D4[2].IN1
+D4[3] => D4[3].IN1
+D4[4] => D4[4].IN1
+D4[5] => D4[5].IN1
+D4[6] => D4[6].IN1
+D4[7] => D4[7].IN1
+D5[0] => D5[0].IN1
+D5[1] => D5[1].IN1
+D5[2] => D5[2].IN1
+D5[3] => D5[3].IN1
+D5[4] => D5[4].IN1
+D5[5] => D5[5].IN1
+D5[6] => D5[6].IN1
+D5[7] => D5[7].IN1
+D6[0] => D6[0].IN1
+D6[1] => D6[1].IN1
+D6[2] => D6[2].IN1
+D6[3] => D6[3].IN1
+D6[4] => D6[4].IN1
+D6[5] => D6[5].IN1
+D6[6] => D6[6].IN1
+D6[7] => D6[7].IN1
+D7[0] => D7[0].IN1
+D7[1] => D7[1].IN1
+D7[2] => D7[2].IN1
+D7[3] => D7[3].IN1
+D7[4] => D7[4].IN1
+D7[5] => D7[5].IN1
+D7[6] => D7[6].IN1
+D7[7] => D7[7].IN1
+S[0] => S[0].IN8
+S[1] => S[1].IN8
+S[2] => S[2].IN8
+Y[0] <= mux_8_para_1:MUX_BIT0.Y
+Y[1] <= mux_8_para_1:MUX_BIT1.Y
+Y[2] <= mux_8_para_1:MUX_BIT2.Y
+Y[3] <= mux_8_para_1:MUX_BIT3.Y
+Y[4] <= mux_8_para_1:MUX_BIT4.Y
+Y[5] <= mux_8_para_1:MUX_BIT5.Y
+Y[6] <= mux_8_para_1:MUX_BIT6.Y
+Y[7] <= mux_8_para_1:MUX_BIT7.Y
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT0
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT1
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT2
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT3
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT4
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT5
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT6
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1_8bits:U_MUX_RESULT|mux_8_para_1:MUX_BIT7
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1:U_MUX_COUT
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1:U_MUX_OV
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|ula_8bits:U_ULA|mux_8_para_1:U_MUX_ERR
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+D2 => U_AND2.IN0
+D3 => U_AND3.IN0
+D4 => U_AND4.IN0
+D5 => U_AND5.IN0
+D6 => U_AND6.IN0
+D7 => U_AND7.IN0
+S[0] => U_AND1.IN1
+S[0] => U_AND3.IN1
+S[0] => U_AND5.IN1
+S[0] => U_AND7.IN1
+S[0] => U_AND0.IN1
+S[0] => U_AND2.IN1
+S[0] => U_AND4.IN1
+S[0] => U_AND6.IN1
+S[1] => U_AND2.IN2
+S[1] => U_AND3.IN2
+S[1] => U_AND6.IN2
+S[1] => U_AND7.IN2
+S[1] => U_AND0.IN2
+S[1] => U_AND1.IN2
+S[1] => U_AND4.IN2
+S[1] => U_AND5.IN2
+S[2] => U_AND4.IN3
+S[2] => U_AND5.IN3
+S[2] => U_AND6.IN3
+S[2] => U_AND7.IN3
+S[2] => U_AND0.IN3
+S[2] => U_AND1.IN3
+S[2] => U_AND2.IN3
+S[2] => U_AND3.IN3
+Y <= U_OR_Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO
+D0[0] => D0[0].IN1
+D0[1] => D0[1].IN1
+D0[2] => D0[2].IN1
+D0[3] => D0[3].IN1
+D0[4] => D0[4].IN1
+D0[5] => D0[5].IN1
+D0[6] => D0[6].IN1
+D0[7] => D0[7].IN1
+D1[0] => D1[0].IN1
+D1[1] => D1[1].IN1
+D1[2] => D1[2].IN1
+D1[3] => D1[3].IN1
+D1[4] => D1[4].IN1
+D1[5] => D1[5].IN1
+D1[6] => D1[6].IN1
+D1[7] => D1[7].IN1
+S => S.IN8
+Y[0] <= mux_2_para_1:MUX_BIT0.Y
+Y[1] <= mux_2_para_1:MUX_BIT1.Y
+Y[2] <= mux_2_para_1:MUX_BIT2.Y
+Y[3] <= mux_2_para_1:MUX_BIT3.Y
+Y[4] <= mux_2_para_1:MUX_BIT4.Y
+Y[5] <= mux_2_para_1:MUX_BIT5.Y
+Y[6] <= mux_2_para_1:MUX_BIT6.Y
+Y[7] <= mux_2_para_1:MUX_BIT7.Y
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT0
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT1
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT2
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT3
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT4
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT5
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT6
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|sistema_rpn_completo:U_SISTEMA_RPN|mux_2_para_1_8bits:U_MUX_EXIBICAO|mux_2_para_1:MUX_BIT7
+D0 => U_AND0.IN0
+D1 => U_AND1.IN0
+S => U_AND1.IN1
+S => U_AND0.IN1
+Y <= U_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR
+valor_binario[0] => valor_binario[0].IN1
+valor_binario[1] => valor_binario[1].IN1
+valor_binario[2] => valor_binario[2].IN1
+valor_binario[3] => valor_binario[3].IN1
+valor_binario[4] => valor_binario[4].IN1
+valor_binario[5] => valor_binario[5].IN1
+valor_binario[6] => valor_binario[6].IN1
+valor_binario[7] => valor_binario[7].IN1
+base_selecionada[0] => base_selecionada[0].IN3
+base_selecionada[1] => base_selecionada[1].IN3
+HEX0[0] <= decodificador_7seg:U_DECOD_UNIDADE.SEG
+HEX0[1] <= decodificador_7seg:U_DECOD_UNIDADE.SEG
+HEX0[2] <= decodificador_7seg:U_DECOD_UNIDADE.SEG
+HEX0[3] <= decodificador_7seg:U_DECOD_UNIDADE.SEG
+HEX0[4] <= decodificador_7seg:U_DECOD_UNIDADE.SEG
+HEX0[5] <= decodificador_7seg:U_DECOD_UNIDADE.SEG
+HEX0[6] <= decodificador_7seg:U_DECOD_UNIDADE.SEG
+HEX1[0] <= decodificador_7seg:U_DECOD_DEZENA.SEG
+HEX1[1] <= decodificador_7seg:U_DECOD_DEZENA.SEG
+HEX1[2] <= decodificador_7seg:U_DECOD_DEZENA.SEG
+HEX1[3] <= decodificador_7seg:U_DECOD_DEZENA.SEG
+HEX1[4] <= decodificador_7seg:U_DECOD_DEZENA.SEG
+HEX1[5] <= decodificador_7seg:U_DECOD_DEZENA.SEG
+HEX1[6] <= decodificador_7seg:U_DECOD_DEZENA.SEG
+HEX2[0] <= decodificador_7seg:U_DECOD_CENTENA.SEG
+HEX2[1] <= decodificador_7seg:U_DECOD_CENTENA.SEG
+HEX2[2] <= decodificador_7seg:U_DECOD_CENTENA.SEG
+HEX2[3] <= decodificador_7seg:U_DECOD_CENTENA.SEG
+HEX2[4] <= decodificador_7seg:U_DECOD_CENTENA.SEG
+HEX2[5] <= decodificador_7seg:U_DECOD_CENTENA.SEG
+HEX2[6] <= decodificador_7seg:U_DECOD_CENTENA.SEG
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|bin_to_bcd_8bit_v3:U_BCD
+S[0] => unidade_out[0].DATAIN
+S[1] => D0_AND19.IN0
+S[1] => D0_AND20.IN0
+S[1] => D0_AND21.IN0
+S[1] => D0_AND22.IN0
+S[1] => D0_AND23.IN0
+S[1] => D0_AND24.IN0
+S[1] => D0_AND25.IN0
+S[1] => D0_AND26.IN0
+S[1] => D0_AND27.IN0
+S[1] => D0_AND28.IN0
+S[1] => D0_AND29.IN0
+S[1] => D0_AND30.IN0
+S[1] => D0_AND31.IN0
+S[1] => U3_AND1.IN0
+S[1] => U3_AND2.IN0
+S[1] => U3_AND3.IN0
+S[1] => U3_AND4.IN0
+S[1] => U3_AND5.IN0
+S[1] => U3_AND6.IN0
+S[1] => U3_AND7.IN0
+S[1] => U3_AND8.IN0
+S[1] => U3_AND9.IN0
+S[1] => U3_AND10.IN0
+S[1] => U3_AND11.IN0
+S[1] => U3_AND12.IN0
+S[1] => U2_AND5.IN0
+S[1] => U2_AND6.IN0
+S[1] => U2_AND7.IN0
+S[1] => U2_AND19.IN0
+S[1] => U2_AND20.IN0
+S[1] => U2_AND21.IN0
+S[1] => U2_AND22.IN0
+S[1] => U2_AND23.IN0
+S[1] => U2_AND24.IN0
+S[1] => U2_AND25.IN0
+S[1] => U2_AND26.IN0
+S[1] => U2_AND27.IN0
+S[1] => U2_AND28.IN0
+S[1] => U1_AND1.IN0
+S[1] => U1_AND2.IN0
+S[1] => U1_AND3.IN0
+S[1] => U1_AND16.IN0
+S[1] => U1_AND17.IN0
+S[1] => U1_AND18.IN0
+S[1] => U1_AND19.IN0
+S[1] => U1_AND23.IN0
+S[1] => U1_AND24.IN0
+S[1] => U1_AND25.IN0
+S[1] => U1_AND26.IN0
+S[1] => U1_AND27.IN0
+S[1] => U1_AND28.IN0
+S[1] => U1_AND29.IN0
+S[1] => U1_AND30.IN0
+S[1] => U1_AND31.IN0
+S[1] => U3_AND13.IN0
+S[1] => U3_AND14.IN0
+S[1] => U3_AND15.IN0
+S[1] => U3_AND16.IN0
+S[1] => U3_AND17.IN0
+S[1] => U3_AND18.IN0
+S[1] => U3_AND19.IN0
+S[1] => U3_AND20.IN0
+S[1] => U3_AND21.IN0
+S[1] => U3_AND22.IN0
+S[1] => U3_AND23.IN0
+S[1] => U3_AND24.IN0
+S[1] => U2_AND2.IN0
+S[1] => U2_AND3.IN0
+S[1] => U2_AND4.IN0
+S[1] => U2_AND8.IN0
+S[1] => U2_AND9.IN0
+S[1] => U2_AND10.IN0
+S[1] => U2_AND29.IN0
+S[1] => U2_AND30.IN0
+S[1] => U2_AND31.IN0
+S[1] => U2_AND32.IN0
+S[1] => U2_AND33.IN0
+S[1] => U2_AND34.IN0
+S[1] => U1_AND4.IN0
+S[1] => U1_AND5.IN0
+S[1] => U1_AND6.IN0
+S[1] => U1_AND7.IN0
+S[1] => U1_AND8.IN0
+S[1] => U1_AND9.IN0
+S[1] => U1_AND10.IN0
+S[1] => U1_AND11.IN0
+S[1] => U1_AND12.IN0
+S[1] => U1_AND13.IN0
+S[1] => U1_AND14.IN0
+S[1] => U1_AND15.IN0
+S[1] => U1_AND20.IN0
+S[1] => U1_AND21.IN0
+S[1] => U1_AND22.IN0
+S[1] => U1_AND32.IN0
+S[1] => U1_AND33.IN0
+S[1] => U1_AND34.IN0
+S[2] => C0_AND5.IN0
+S[2] => D3_AND4.IN0
+S[2] => D2_AND7.IN0
+S[2] => D1_AND8.IN0
+S[2] => D1_AND10.IN0
+S[2] => D1_AND11.IN0
+S[2] => D0_AND5.IN0
+S[2] => D0_AND6.IN0
+S[2] => D0_AND7.IN0
+S[2] => D0_AND8.IN0
+S[2] => D0_AND9.IN0
+S[2] => D0_AND10.IN0
+S[2] => D0_AND17.IN0
+S[2] => D0_AND19.IN1
+S[2] => D0_AND20.IN1
+S[2] => D0_AND21.IN1
+S[2] => D0_AND22.IN1
+S[2] => D0_AND23.IN1
+S[2] => D0_AND24.IN1
+S[2] => U3_AND1.IN1
+S[2] => U3_AND2.IN1
+S[2] => U3_AND3.IN1
+S[2] => U3_AND4.IN1
+S[2] => U3_AND5.IN1
+S[2] => U3_AND6.IN1
+S[2] => U3_AND13.IN1
+S[2] => U3_AND14.IN1
+S[2] => U3_AND15.IN1
+S[2] => U3_AND16.IN1
+S[2] => U3_AND17.IN1
+S[2] => U3_AND18.IN1
+S[2] => U2_AND1.IN0
+S[2] => U2_AND2.IN1
+S[2] => U2_AND3.IN1
+S[2] => U2_AND4.IN1
+S[2] => U2_AND5.IN1
+S[2] => U2_AND8.IN1
+S[2] => U2_AND11.IN0
+S[2] => U2_AND12.IN0
+S[2] => U2_AND13.IN0
+S[2] => U2_AND14.IN0
+S[2] => U2_AND19.IN1
+S[2] => U2_AND20.IN1
+S[2] => U2_AND21.IN1
+S[2] => U2_AND22.IN1
+S[2] => U2_AND23.IN1
+S[2] => U2_AND24.IN1
+S[2] => U1_AND2.IN1
+S[2] => U1_AND3.IN1
+S[2] => U1_AND8.IN1
+S[2] => U1_AND9.IN1
+S[2] => U1_AND10.IN1
+S[2] => U1_AND11.IN1
+S[2] => U1_AND12.IN1
+S[2] => U1_AND13.IN1
+S[2] => U1_AND16.IN1
+S[2] => U1_AND26.IN1
+S[2] => U1_AND27.IN1
+S[2] => U1_AND28.IN1
+S[2] => U1_AND33.IN1
+S[2] => D3_AND5.IN0
+S[2] => D2_AND8.IN0
+S[2] => D1_AND5.IN0
+S[2] => D1_AND9.IN0
+S[2] => D0_AND11.IN0
+S[2] => D0_AND12.IN0
+S[2] => D0_AND13.IN0
+S[2] => D0_AND14.IN0
+S[2] => D0_AND15.IN0
+S[2] => D0_AND18.IN0
+S[2] => D0_AND25.IN1
+S[2] => D0_AND26.IN1
+S[2] => D0_AND27.IN1
+S[2] => D0_AND28.IN1
+S[2] => D0_AND29.IN1
+S[2] => D0_AND30.IN1
+S[2] => D0_AND31.IN1
+S[2] => U3_AND7.IN1
+S[2] => U3_AND8.IN1
+S[2] => U3_AND9.IN1
+S[2] => U3_AND10.IN1
+S[2] => U3_AND11.IN1
+S[2] => U3_AND12.IN1
+S[2] => U3_AND19.IN1
+S[2] => U3_AND20.IN1
+S[2] => U3_AND21.IN1
+S[2] => U3_AND22.IN1
+S[2] => U3_AND23.IN1
+S[2] => U3_AND24.IN1
+S[2] => U2_AND6.IN1
+S[2] => U2_AND7.IN1
+S[2] => U2_AND9.IN1
+S[2] => U2_AND10.IN1
+S[2] => U2_AND15.IN0
+S[2] => U2_AND16.IN0
+S[2] => U2_AND17.IN0
+S[2] => U2_AND18.IN0
+S[2] => U2_AND25.IN1
+S[2] => U2_AND26.IN1
+S[2] => U2_AND27.IN1
+S[2] => U2_AND28.IN1
+S[2] => U2_AND29.IN1
+S[2] => U2_AND30.IN1
+S[2] => U2_AND31.IN1
+S[2] => U2_AND32.IN1
+S[2] => U2_AND33.IN1
+S[2] => U2_AND34.IN1
+S[2] => U1_AND14.IN1
+S[2] => U1_AND15.IN1
+S[2] => U1_AND17.IN1
+S[2] => U1_AND18.IN1
+S[2] => U1_AND19.IN1
+S[2] => U1_AND20.IN1
+S[2] => U1_AND21.IN1
+S[2] => U1_AND22.IN1
+S[2] => U1_AND29.IN1
+S[2] => U1_AND30.IN1
+S[2] => U1_AND31.IN1
+S[2] => U1_AND34.IN1
+S[3] => C1_AND3.IN0
+S[3] => C0_AND3.IN0
+S[3] => D3_AND2.IN0
+S[3] => D2_AND6.IN0
+S[3] => D2_AND7.IN1
+S[3] => D1_AND6.IN0
+S[3] => D1_AND7.IN0
+S[3] => D1_AND10.IN1
+S[3] => D1_AND11.IN1
+S[3] => D0_AND1.IN0
+S[3] => D0_AND2.IN0
+S[3] => D0_AND3.IN0
+S[3] => D0_AND5.IN1
+S[3] => D0_AND6.IN1
+S[3] => D0_AND7.IN1
+S[3] => D0_AND8.IN1
+S[3] => D0_AND11.IN1
+S[3] => D0_AND12.IN1
+S[3] => D0_AND13.IN1
+S[3] => D0_AND20.IN2
+S[3] => D0_AND21.IN2
+S[3] => D0_AND22.IN2
+S[3] => D0_AND27.IN2
+S[3] => D0_AND28.IN2
+S[3] => D0_AND29.IN2
+S[3] => D0_AND30.IN2
+S[3] => U3_AND1.IN2
+S[3] => U3_AND2.IN2
+S[3] => U3_AND3.IN2
+S[3] => U3_AND7.IN2
+S[3] => U3_AND8.IN2
+S[3] => U3_AND9.IN2
+S[3] => U3_AND13.IN2
+S[3] => U3_AND14.IN2
+S[3] => U3_AND15.IN2
+S[3] => U3_AND19.IN2
+S[3] => U3_AND20.IN2
+S[3] => U3_AND21.IN2
+S[3] => U3_AND22.IN2
+S[3] => U2_AND1.IN1
+S[3] => U2_AND3.IN2
+S[3] => U2_AND4.IN2
+S[3] => U2_AND8.IN2
+S[3] => U2_AND9.IN2
+S[3] => U2_AND10.IN2
+S[3] => U2_AND15.IN1
+S[3] => U2_AND21.IN2
+S[3] => U2_AND22.IN2
+S[3] => U2_AND26.IN2
+S[3] => U2_AND27.IN2
+S[3] => U2_AND32.IN2
+S[3] => U1_AND1.IN1
+S[3] => U1_AND2.IN2
+S[3] => U1_AND3.IN2
+S[3] => U1_AND4.IN1
+S[3] => U1_AND5.IN1
+S[3] => U1_AND6.IN1
+S[3] => U1_AND8.IN2
+S[3] => U1_AND9.IN2
+S[3] => U1_AND10.IN2
+S[3] => U1_AND11.IN2
+S[3] => U1_AND14.IN2
+S[3] => U1_AND15.IN2
+S[3] => U1_AND17.IN2
+S[3] => U1_AND18.IN2
+S[3] => U1_AND20.IN2
+S[3] => U1_AND23.IN1
+S[3] => U1_AND26.IN2
+S[3] => U1_AND29.IN2
+S[3] => C0_AND4.IN0
+S[3] => D3_AND3.IN0
+S[3] => D3_AND5.IN1
+S[3] => D2_AND8.IN1
+S[3] => D1_AND3.IN0
+S[3] => D1_AND4.IN0
+S[3] => D1_AND9.IN1
+S[3] => D0_AND4.IN0
+S[3] => D0_AND9.IN1
+S[3] => D0_AND10.IN1
+S[3] => D0_AND14.IN1
+S[3] => D0_AND15.IN1
+S[3] => D0_AND16.IN0
+S[3] => D0_AND17.IN1
+S[3] => D0_AND18.IN1
+S[3] => D0_AND23.IN2
+S[3] => D0_AND24.IN2
+S[3] => D0_AND31.IN2
+S[3] => U3_AND4.IN2
+S[3] => U3_AND5.IN2
+S[3] => U3_AND6.IN2
+S[3] => U3_AND10.IN2
+S[3] => U3_AND11.IN2
+S[3] => U3_AND12.IN2
+S[3] => U3_AND16.IN2
+S[3] => U3_AND17.IN2
+S[3] => U3_AND18.IN2
+S[3] => U3_AND23.IN2
+S[3] => U3_AND24.IN2
+S[3] => U2_AND5.IN2
+S[3] => U2_AND6.IN2
+S[3] => U2_AND7.IN2
+S[3] => U2_AND11.IN1
+S[3] => U2_AND12.IN1
+S[3] => U2_AND13.IN1
+S[3] => U2_AND14.IN1
+S[3] => U2_AND16.IN1
+S[3] => U2_AND17.IN1
+S[3] => U2_AND18.IN1
+S[3] => U2_AND23.IN2
+S[3] => U2_AND24.IN2
+S[3] => U2_AND28.IN2
+S[3] => U2_AND33.IN2
+S[3] => U2_AND34.IN2
+S[3] => U1_AND7.IN1
+S[3] => U1_AND12.IN2
+S[3] => U1_AND13.IN2
+S[3] => U1_AND16.IN2
+S[3] => U1_AND19.IN2
+S[3] => U1_AND21.IN2
+S[3] => U1_AND22.IN2
+S[3] => U1_AND24.IN1
+S[3] => U1_AND25.IN1
+S[3] => U1_AND27.IN2
+S[3] => U1_AND28.IN2
+S[3] => U1_AND30.IN2
+S[3] => U1_AND31.IN2
+S[3] => U1_AND32.IN1
+S[3] => U1_AND33.IN2
+S[3] => U1_AND34.IN2
+S[4] => C1_AND2.IN0
+S[4] => C0_AND2.IN0
+S[4] => D3_AND1.IN0
+S[4] => D3_AND2.IN1
+S[4] => D3_AND4.IN1
+S[4] => D2_AND1.IN0
+S[4] => D2_AND2.IN0
+S[4] => D2_AND3.IN0
+S[4] => D2_AND8.IN2
+S[4] => D1_AND6.IN1
+S[4] => D1_AND7.IN1
+S[4] => D1_AND8.IN1
+S[4] => D1_AND10.IN2
+S[4] => D1_AND11.IN2
+S[4] => D0_AND1.IN1
+S[4] => D0_AND12.IN2
+S[4] => D0_AND13.IN2
+S[4] => D0_AND14.IN2
+S[4] => D0_AND15.IN2
+S[4] => D0_AND17.IN2
+S[4] => D0_AND19.IN2
+S[4] => D0_AND20.IN3
+S[4] => D0_AND21.IN3
+S[4] => D0_AND25.IN2
+S[4] => D0_AND27.IN3
+S[4] => D0_AND28.IN3
+S[4] => D0_AND31.IN3
+S[4] => U3_AND1.IN3
+S[4] => U3_AND4.IN3
+S[4] => U3_AND7.IN3
+S[4] => U3_AND8.IN3
+S[4] => U3_AND10.IN3
+S[4] => U3_AND11.IN3
+S[4] => U3_AND13.IN3
+S[4] => U3_AND14.IN3
+S[4] => U3_AND16.IN3
+S[4] => U3_AND19.IN3
+S[4] => U3_AND20.IN3
+S[4] => U3_AND23.IN3
+S[4] => U3_AND24.IN3
+S[4] => U2_AND5.IN3
+S[4] => U2_AND6.IN3
+S[4] => U2_AND8.IN3
+S[4] => U2_AND9.IN3
+S[4] => U2_AND11.IN2
+S[4] => U2_AND12.IN2
+S[4] => U2_AND15.IN2
+S[4] => U2_AND16.IN2
+S[4] => U2_AND19.IN2
+S[4] => U2_AND21.IN3
+S[4] => U2_AND23.IN3
+S[4] => U2_AND26.IN3
+S[4] => U2_AND29.IN2
+S[4] => U2_AND32.IN3
+S[4] => U2_AND33.IN3
+S[4] => U2_AND34.IN3
+S[4] => U1_AND4.IN2
+S[4] => U1_AND15.IN3
+S[4] => U1_AND17.IN3
+S[4] => U1_AND18.IN3
+S[4] => U1_AND19.IN3
+S[4] => U1_AND20.IN3
+S[4] => U1_AND21.IN3
+S[4] => U1_AND22.IN3
+S[4] => U1_AND26.IN3
+S[4] => U1_AND27.IN3
+S[4] => U1_AND28.IN3
+S[4] => U1_AND33.IN3
+S[4] => C0_AND4.IN1
+S[4] => D3_AND3.IN1
+S[4] => D3_AND5.IN2
+S[4] => D2_AND4.IN0
+S[4] => D2_AND5.IN0
+S[4] => D2_AND6.IN1
+S[4] => D2_AND7.IN2
+S[4] => D1_AND1.IN0
+S[4] => D1_AND2.IN0
+S[4] => D1_AND3.IN1
+S[4] => D1_AND4.IN1
+S[4] => D1_AND5.IN1
+S[4] => D0_AND2.IN1
+S[4] => D0_AND3.IN1
+S[4] => D0_AND4.IN1
+S[4] => D0_AND7.IN2
+S[4] => D0_AND8.IN2
+S[4] => D0_AND10.IN2
+S[4] => D0_AND16.IN1
+S[4] => D0_AND22.IN3
+S[4] => D0_AND23.IN3
+S[4] => D0_AND24.IN3
+S[4] => D0_AND26.IN2
+S[4] => D0_AND29.IN3
+S[4] => D0_AND30.IN3
+S[4] => U3_AND2.IN3
+S[4] => U3_AND3.IN3
+S[4] => U3_AND5.IN3
+S[4] => U3_AND6.IN3
+S[4] => U3_AND9.IN3
+S[4] => U3_AND12.IN3
+S[4] => U3_AND15.IN3
+S[4] => U3_AND17.IN3
+S[4] => U3_AND18.IN3
+S[4] => U3_AND21.IN3
+S[4] => U3_AND22.IN3
+S[4] => U2_AND1.IN2
+S[4] => U2_AND2.IN2
+S[4] => U2_AND3.IN3
+S[4] => U2_AND4.IN3
+S[4] => U2_AND7.IN3
+S[4] => U2_AND10.IN3
+S[4] => U2_AND13.IN2
+S[4] => U2_AND14.IN2
+S[4] => U2_AND17.IN2
+S[4] => U2_AND18.IN2
+S[4] => U2_AND20.IN2
+S[4] => U2_AND22.IN3
+S[4] => U2_AND24.IN3
+S[4] => U2_AND25.IN2
+S[4] => U2_AND27.IN3
+S[4] => U2_AND28.IN3
+S[4] => U2_AND30.IN2
+S[4] => U2_AND31.IN2
+S[4] => U1_AND1.IN2
+S[4] => U1_AND3.IN3
+S[4] => U1_AND5.IN2
+S[4] => U1_AND6.IN2
+S[4] => U1_AND7.IN2
+S[4] => U1_AND10.IN3
+S[4] => U1_AND11.IN3
+S[4] => U1_AND13.IN3
+S[4] => U1_AND16.IN3
+S[4] => U1_AND23.IN2
+S[4] => U1_AND24.IN2
+S[4] => U1_AND25.IN2
+S[4] => U1_AND32.IN2
+S[5] => C1_AND1.IN0
+S[5] => C0_AND2.IN1
+S[5] => C0_AND3.IN1
+S[5] => C0_AND5.IN1
+S[5] => D3_AND2.IN2
+S[5] => D3_AND4.IN2
+S[5] => D3_AND5.IN3
+S[5] => D2_AND1.IN1
+S[5] => D2_AND2.IN1
+S[5] => D2_AND4.IN1
+S[5] => D2_AND6.IN2
+S[5] => D2_AND8.IN3
+S[5] => D1_AND1.IN1
+S[5] => D1_AND4.IN2
+S[5] => D1_AND6.IN2
+S[5] => D1_AND9.IN2
+S[5] => D1_AND11.IN3
+S[5] => D0_AND2.IN2
+S[5] => D0_AND5.IN2
+S[5] => D0_AND7.IN3
+S[5] => D0_AND13.IN3
+S[5] => D0_AND14.IN3
+S[5] => D0_AND16.IN2
+S[5] => D0_AND17.IN3
+S[5] => D0_AND18.IN2
+S[5] => D0_AND22.IN4
+S[5] => D0_AND31.IN4
+S[5] => U3_AND2.IN4
+S[5] => U3_AND4.IN4
+S[5] => U3_AND5.IN4
+S[5] => U3_AND7.IN4
+S[5] => U3_AND10.IN4
+S[5] => U3_AND12.IN4
+S[5] => U3_AND13.IN4
+S[5] => U3_AND15.IN4
+S[5] => U3_AND17.IN4
+S[5] => U3_AND19.IN4
+S[5] => U3_AND21.IN4
+S[5] => U3_AND23.IN4
+S[5] => U2_AND5.IN4
+S[5] => U2_AND6.IN4
+S[5] => U2_AND7.IN4
+S[5] => U2_AND11.IN3
+S[5] => U2_AND13.IN3
+S[5] => U2_AND17.IN3
+S[5] => U2_AND21.IN4
+S[5] => U2_AND22.IN4
+S[5] => U2_AND27.IN4
+S[5] => U2_AND29.IN3
+S[5] => U2_AND30.IN3
+S[5] => U2_AND31.IN3
+S[5] => U2_AND32.IN4
+S[5] => U1_AND5.IN3
+S[5] => U1_AND8.IN3
+S[5] => U1_AND10.IN4
+S[5] => U1_AND16.IN4
+S[5] => U1_AND17.IN4
+S[5] => U1_AND20.IN4
+S[5] => U1_AND21.IN4
+S[5] => U1_AND23.IN3
+S[5] => U1_AND24.IN3
+S[5] => U1_AND26.IN4
+S[5] => U1_AND27.IN4
+S[5] => U1_AND29.IN3
+S[5] => U1_AND30.IN3
+S[5] => U1_AND32.IN3
+S[5] => U1_AND33.IN4
+S[5] => U1_AND34.IN3
+S[5] => C0_AND4.IN2
+S[5] => D3_AND1.IN1
+S[5] => D3_AND3.IN2
+S[5] => D2_AND3.IN1
+S[5] => D2_AND5.IN1
+S[5] => D1_AND2.IN1
+S[5] => D1_AND7.IN2
+S[5] => D1_AND8.IN2
+S[5] => D1_AND10.IN3
+S[5] => D0_AND1.IN2
+S[5] => D0_AND3.IN2
+S[5] => D0_AND4.IN2
+S[5] => D0_AND6.IN2
+S[5] => D0_AND8.IN3
+S[5] => D0_AND9.IN2
+S[5] => D0_AND10.IN3
+S[5] => D0_AND11.IN2
+S[5] => D0_AND12.IN3
+S[5] => D0_AND15.IN3
+S[5] => D0_AND19.IN3
+S[5] => D0_AND21.IN4
+S[5] => D0_AND24.IN4
+S[5] => D0_AND25.IN3
+S[5] => D0_AND26.IN3
+S[5] => D0_AND28.IN4
+S[5] => D0_AND30.IN4
+S[5] => U3_AND1.IN4
+S[5] => U3_AND3.IN4
+S[5] => U3_AND6.IN4
+S[5] => U3_AND8.IN4
+S[5] => U3_AND9.IN4
+S[5] => U3_AND11.IN4
+S[5] => U3_AND14.IN4
+S[5] => U3_AND16.IN4
+S[5] => U3_AND18.IN4
+S[5] => U3_AND20.IN4
+S[5] => U3_AND22.IN4
+S[5] => U3_AND24.IN4
+S[5] => U2_AND1.IN3
+S[5] => U2_AND2.IN3
+S[5] => U2_AND4.IN4
+S[5] => U2_AND8.IN4
+S[5] => U2_AND9.IN4
+S[5] => U2_AND10.IN4
+S[5] => U2_AND12.IN3
+S[5] => U2_AND14.IN3
+S[5] => U2_AND15.IN3
+S[5] => U2_AND16.IN3
+S[5] => U2_AND18.IN3
+S[5] => U2_AND19.IN3
+S[5] => U2_AND20.IN3
+S[5] => U2_AND23.IN4
+S[5] => U2_AND24.IN4
+S[5] => U2_AND25.IN3
+S[5] => U2_AND28.IN4
+S[5] => U2_AND34.IN4
+S[5] => U1_AND1.IN3
+S[5] => U1_AND2.IN3
+S[5] => U1_AND3.IN4
+S[5] => U1_AND4.IN3
+S[5] => U1_AND6.IN3
+S[5] => U1_AND7.IN3
+S[5] => U1_AND9.IN3
+S[5] => U1_AND11.IN4
+S[5] => U1_AND12.IN3
+S[5] => U1_AND13.IN4
+S[5] => U1_AND14.IN3
+S[5] => U1_AND15.IN4
+S[5] => U1_AND18.IN4
+S[5] => U1_AND19.IN4
+S[5] => U1_AND22.IN4
+S[5] => U1_AND25.IN3
+S[5] => U1_AND28.IN4
+S[5] => U1_AND31.IN3
+S[6] => C1_AND1.IN1
+S[6] => C1_AND2.IN1
+S[6] => C1_AND3.IN1
+S[6] => C0_AND2.IN2
+S[6] => C0_AND3.IN2
+S[6] => C0_AND5.IN2
+S[6] => D3_AND1.IN2
+S[6] => D3_AND3.IN3
+S[6] => D3_AND5.IN4
+S[6] => D2_AND1.IN2
+S[6] => D2_AND5.IN2
+S[6] => D1_AND2.IN2
+S[6] => D1_AND6.IN3
+S[6] => D1_AND10.IN4
+S[6] => D0_AND2.IN3
+S[6] => D0_AND3.IN3
+S[6] => D0_AND4.IN3
+S[6] => D0_AND5.IN3
+S[6] => D0_AND6.IN3
+S[6] => D0_AND9.IN3
+S[6] => D0_AND18.IN3
+S[6] => D0_AND22.IN5
+S[6] => D0_AND23.IN4
+S[6] => D0_AND24.IN5
+S[6] => D0_AND25.IN4
+S[6] => D0_AND27.IN4
+S[6] => D0_AND28.IN5
+S[6] => U3_AND2.IN5
+S[6] => U3_AND3.IN5
+S[6] => U3_AND4.IN5
+S[6] => U3_AND6.IN5
+S[6] => U3_AND8.IN5
+S[6] => U3_AND12.IN5
+S[6] => U3_AND15.IN5
+S[6] => U3_AND17.IN5
+S[6] => U3_AND18.IN5
+S[6] => U3_AND19.IN5
+S[6] => U3_AND20.IN5
+S[6] => U3_AND24.IN5
+S[6] => U2_AND1.IN4
+S[6] => U2_AND2.IN4
+S[6] => U2_AND3.IN4
+S[6] => U2_AND4.IN5
+S[6] => U2_AND6.IN5
+S[6] => U2_AND9.IN5
+S[6] => U2_AND11.IN4
+S[6] => U2_AND12.IN4
+S[6] => U2_AND17.IN4
+S[6] => U2_AND18.IN4
+S[6] => U2_AND19.IN4
+S[6] => U2_AND21.IN5
+S[6] => U2_AND23.IN5
+S[6] => U2_AND25.IN4
+S[6] => U2_AND27.IN5
+S[6] => U2_AND28.IN5
+S[6] => U2_AND29.IN4
+S[6] => U2_AND31.IN4
+S[6] => U1_AND1.IN4
+S[6] => U1_AND2.IN4
+S[6] => U1_AND5.IN4
+S[6] => U1_AND6.IN4
+S[6] => U1_AND7.IN4
+S[6] => U1_AND8.IN4
+S[6] => U1_AND9.IN4
+S[6] => U1_AND12.IN4
+S[6] => U1_AND16.IN5
+S[6] => U1_AND29.IN4
+S[6] => U1_AND30.IN4
+S[6] => U1_AND31.IN4
+S[6] => U1_AND34.IN4
+S[6] => C0_AND1.IN0
+S[6] => D3_AND2.IN3
+S[6] => D3_AND4.IN3
+S[6] => D2_AND2.IN2
+S[6] => D2_AND3.IN2
+S[6] => D2_AND4.IN2
+S[6] => D2_AND6.IN3
+S[6] => D2_AND7.IN3
+S[6] => D2_AND8.IN4
+S[6] => D1_AND3.IN2
+S[6] => D1_AND4.IN3
+S[6] => D1_AND5.IN2
+S[6] => D1_AND7.IN3
+S[6] => D1_AND8.IN3
+S[6] => D1_AND9.IN3
+S[6] => D0_AND1.IN3
+S[6] => D0_AND11.IN3
+S[6] => D0_AND13.IN4
+S[6] => D0_AND14.IN4
+S[6] => D0_AND15.IN4
+S[6] => D0_AND16.IN3
+S[6] => D0_AND19.IN4
+S[6] => D0_AND20.IN4
+S[6] => D0_AND21.IN5
+S[6] => D0_AND26.IN4
+S[6] => D0_AND29.IN4
+S[6] => D0_AND30.IN5
+S[6] => D0_AND31.IN5
+S[6] => U3_AND1.IN5
+S[6] => U3_AND5.IN5
+S[6] => U3_AND7.IN5
+S[6] => U3_AND9.IN5
+S[6] => U3_AND10.IN5
+S[6] => U3_AND11.IN5
+S[6] => U3_AND13.IN5
+S[6] => U3_AND14.IN5
+S[6] => U3_AND16.IN5
+S[6] => U3_AND21.IN5
+S[6] => U3_AND22.IN5
+S[6] => U3_AND23.IN5
+S[6] => U2_AND5.IN5
+S[6] => U2_AND7.IN5
+S[6] => U2_AND8.IN5
+S[6] => U2_AND10.IN5
+S[6] => U2_AND13.IN4
+S[6] => U2_AND14.IN4
+S[6] => U2_AND15.IN4
+S[6] => U2_AND16.IN4
+S[6] => U2_AND20.IN4
+S[6] => U2_AND22.IN5
+S[6] => U2_AND24.IN5
+S[6] => U2_AND26.IN4
+S[6] => U2_AND30.IN4
+S[6] => U2_AND32.IN5
+S[6] => U2_AND33.IN4
+S[6] => U2_AND34.IN5
+S[6] => U1_AND4.IN4
+S[6] => U1_AND14.IN4
+S[6] => U1_AND17.IN5
+S[6] => U1_AND18.IN5
+S[6] => U1_AND19.IN5
+S[6] => U1_AND20.IN5
+S[6] => U1_AND21.IN5
+S[6] => U1_AND22.IN5
+S[6] => U1_AND23.IN4
+S[6] => U1_AND24.IN4
+S[6] => U1_AND25.IN4
+S[6] => U1_AND32.IN4
+S[7] => C1_AND1.IN2
+S[7] => C1_AND2.IN2
+S[7] => C1_AND3.IN2
+S[7] => C0_AND1.IN1
+S[7] => C0_AND4.IN3
+S[7] => D3_AND2.IN4
+S[7] => D3_AND3.IN4
+S[7] => D3_AND4.IN4
+S[7] => D2_AND1.IN3
+S[7] => D2_AND3.IN3
+S[7] => D2_AND4.IN3
+S[7] => D2_AND7.IN4
+S[7] => D1_AND1.IN2
+S[7] => D1_AND3.IN3
+S[7] => D1_AND5.IN3
+S[7] => D1_AND9.IN4
+S[7] => D1_AND10.IN5
+S[7] => D0_AND1.IN4
+S[7] => D0_AND2.IN4
+S[7] => D0_AND4.IN4
+S[7] => D0_AND5.IN4
+S[7] => D0_AND7.IN4
+S[7] => D0_AND9.IN4
+S[7] => D0_AND10.IN4
+S[7] => D0_AND11.IN4
+S[7] => D0_AND12.IN4
+S[7] => D0_AND14.IN5
+S[7] => D0_AND19.IN5
+S[7] => D0_AND20.IN5
+S[7] => D0_AND23.IN5
+S[7] => D0_AND25.IN5
+S[7] => D0_AND26.IN5
+S[7] => D0_AND27.IN5
+S[7] => D0_AND29.IN5
+S[7] => U3_AND1.IN6
+S[7] => U3_AND2.IN6
+S[7] => U3_AND6.IN6
+S[7] => U3_AND8.IN6
+S[7] => U3_AND9.IN6
+S[7] => U3_AND10.IN6
+S[7] => U3_AND13.IN6
+S[7] => U3_AND16.IN6
+S[7] => U3_AND17.IN6
+S[7] => U3_AND19.IN6
+S[7] => U3_AND21.IN6
+S[7] => U3_AND24.IN6
+S[7] => U2_AND1.IN5
+S[7] => U2_AND2.IN5
+S[7] => U2_AND3.IN5
+S[7] => U2_AND8.IN6
+S[7] => U2_AND9.IN6
+S[7] => U2_AND10.IN6
+S[7] => U2_AND11.IN5
+S[7] => U2_AND13.IN5
+S[7] => U2_AND16.IN5
+S[7] => U2_AND17.IN5
+S[7] => U2_AND26.IN5
+S[7] => U2_AND33.IN5
+S[7] => U1_AND1.IN5
+S[7] => U1_AND2.IN5
+S[7] => U1_AND3.IN5
+S[7] => U1_AND4.IN5
+S[7] => U1_AND5.IN5
+S[7] => U1_AND7.IN5
+S[7] => U1_AND8.IN5
+S[7] => U1_AND10.IN5
+S[7] => U1_AND12.IN5
+S[7] => U1_AND13.IN5
+S[7] => U1_AND14.IN5
+S[7] => U1_AND15.IN5
+S[7] => U1_AND17.IN6
+S[7] => U1_AND19.IN6
+S[7] => U1_AND21.IN6
+S[7] => U1_AND24.IN5
+S[7] => U1_AND27.IN5
+S[7] => U1_AND30.IN5
+S[7] => C0_AND2.IN3
+S[7] => C0_AND3.IN3
+S[7] => C0_AND5.IN3
+S[7] => D3_AND1.IN3
+S[7] => D3_AND5.IN5
+S[7] => D2_AND2.IN3
+S[7] => D2_AND5.IN3
+S[7] => D1_AND2.IN3
+S[7] => D1_AND6.IN4
+S[7] => D1_AND7.IN4
+S[7] => D1_AND8.IN4
+S[7] => D1_AND11.IN4
+S[7] => D0_AND3.IN4
+S[7] => D0_AND6.IN4
+S[7] => D0_AND8.IN4
+S[7] => D0_AND13.IN5
+S[7] => D0_AND15.IN5
+S[7] => D0_AND16.IN4
+S[7] => D0_AND17.IN4
+S[7] => D0_AND18.IN4
+S[7] => U3_AND3.IN6
+S[7] => U3_AND4.IN6
+S[7] => U3_AND5.IN6
+S[7] => U3_AND7.IN6
+S[7] => U3_AND11.IN6
+S[7] => U3_AND12.IN6
+S[7] => U3_AND14.IN6
+S[7] => U3_AND15.IN6
+S[7] => U3_AND18.IN6
+S[7] => U3_AND20.IN6
+S[7] => U3_AND22.IN6
+S[7] => U3_AND23.IN6
+S[7] => U2_AND5.IN6
+S[7] => U2_AND6.IN6
+S[7] => U2_AND7.IN6
+S[7] => U2_AND12.IN5
+S[7] => U2_AND14.IN5
+S[7] => U2_AND15.IN5
+S[7] => U2_AND18.IN5
+S[7] => U2_AND19.IN5
+S[7] => U2_AND20.IN5
+S[7] => U2_AND25.IN5
+S[7] => U2_AND29.IN5
+S[7] => U2_AND30.IN5
+S[7] => U2_AND31.IN5
+S[7] => U1_AND6.IN5
+S[7] => U1_AND9.IN5
+S[7] => U1_AND11.IN5
+S[7] => U1_AND16.IN6
+S[7] => U1_AND18.IN6
+S[7] => U1_AND20.IN6
+S[7] => U1_AND22.IN6
+S[7] => U1_AND23.IN5
+S[7] => U1_AND25.IN5
+S[7] => U1_AND26.IN5
+S[7] => U1_AND28.IN5
+S[7] => U1_AND29.IN5
+S[7] => U1_AND31.IN5
+S[7] => U1_AND32.IN5
+S[7] => U1_AND33.IN5
+S[7] => U1_AND34.IN5
+centena_out[0] <= C0_OR.DB_MAX_OUTPUT_PORT_TYPE
+centena_out[1] <= C1_OR.DB_MAX_OUTPUT_PORT_TYPE
+centena_out[2] <= <GND>
+centena_out[3] <= <GND>
+dezena_out[0] <= D0_OR.DB_MAX_OUTPUT_PORT_TYPE
+dezena_out[1] <= D1_OR.DB_MAX_OUTPUT_PORT_TYPE
+dezena_out[2] <= D2_OR.DB_MAX_OUTPUT_PORT_TYPE
+dezena_out[3] <= D3_OR.DB_MAX_OUTPUT_PORT_TYPE
+unidade_out[0] <= S[0].DB_MAX_OUTPUT_PORT_TYPE
+unidade_out[1] <= U1_OR.DB_MAX_OUTPUT_PORT_TYPE
+unidade_out[2] <= U2_OR.DB_MAX_OUTPUT_PORT_TYPE
+unidade_out[3] <= U3_OR.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE
+D0[0] => D0[0].IN1
+D0[1] => D0[1].IN1
+D0[2] => D0[2].IN1
+D0[3] => D0[3].IN1
+D1[0] => D1[0].IN1
+D1[1] => D1[1].IN1
+D1[2] => D1[2].IN1
+D1[3] => D1[3].IN1
+D2[0] => D2[0].IN1
+D2[1] => D2[1].IN1
+D2[2] => D2[2].IN1
+D2[3] => D2[3].IN1
+D3[0] => D3[0].IN1
+D3[1] => D3[1].IN1
+D3[2] => D3[2].IN1
+D3[3] => D3[3].IN1
+S[0] => S[0].IN4
+S[1] => S[1].IN4
+Y[0] <= mux_4_para_1:MUX_BIT0.Y
+Y[1] <= mux_4_para_1:MUX_BIT1.Y
+Y[2] <= mux_4_para_1:MUX_BIT2.Y
+Y[3] <= mux_4_para_1:MUX_BIT3.Y
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT0
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT1
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT2
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_UNIDADE|mux_4_para_1:MUX_BIT3
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA
+D0[0] => D0[0].IN1
+D0[1] => D0[1].IN1
+D0[2] => D0[2].IN1
+D0[3] => D0[3].IN1
+D1[0] => D1[0].IN1
+D1[1] => D1[1].IN1
+D1[2] => D1[2].IN1
+D1[3] => D1[3].IN1
+D2[0] => D2[0].IN1
+D2[1] => D2[1].IN1
+D2[2] => D2[2].IN1
+D2[3] => D2[3].IN1
+D3[0] => D3[0].IN1
+D3[1] => D3[1].IN1
+D3[2] => D3[2].IN1
+D3[3] => D3[3].IN1
+S[0] => S[0].IN4
+S[1] => S[1].IN4
+Y[0] <= mux_4_para_1:MUX_BIT0.Y
+Y[1] <= mux_4_para_1:MUX_BIT1.Y
+Y[2] <= mux_4_para_1:MUX_BIT2.Y
+Y[3] <= mux_4_para_1:MUX_BIT3.Y
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT0
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT1
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT2
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_DEZENA|mux_4_para_1:MUX_BIT3
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA
+D0[0] => D0[0].IN1
+D0[1] => D0[1].IN1
+D0[2] => D0[2].IN1
+D0[3] => D0[3].IN1
+D1[0] => D1[0].IN1
+D1[1] => D1[1].IN1
+D1[2] => D1[2].IN1
+D1[3] => D1[3].IN1
+D2[0] => D2[0].IN1
+D2[1] => D2[1].IN1
+D2[2] => D2[2].IN1
+D2[3] => D2[3].IN1
+D3[0] => D3[0].IN1
+D3[1] => D3[1].IN1
+D3[2] => D3[2].IN1
+D3[3] => D3[3].IN1
+S[0] => S[0].IN4
+S[1] => S[1].IN4
+Y[0] <= mux_4_para_1:MUX_BIT0.Y
+Y[1] <= mux_4_para_1:MUX_BIT1.Y
+Y[2] <= mux_4_para_1:MUX_BIT2.Y
+Y[3] <= mux_4_para_1:MUX_BIT3.Y
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA|mux_4_para_1:MUX_BIT0
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA|mux_4_para_1:MUX_BIT1
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA|mux_4_para_1:MUX_BIT2
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|mux_4_para_1_4bits:U_MUX_CENTENA|mux_4_para_1:MUX_BIT3
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|decodificador_7seg:U_DECOD_UNIDADE
+D[0] => WideAnd1.IN0
+D[0] => WideAnd3.IN0
+D[0] => WideAnd5.IN0
+D[0] => WideAnd7.IN0
+D[0] => WideAnd8.IN0
+D[0] => WideAnd10.IN0
+D[0] => WideAnd12.IN0
+D[0] => WideAnd0.IN0
+D[0] => WideAnd2.IN0
+D[0] => WideAnd4.IN0
+D[0] => WideAnd6.IN0
+D[0] => WideAnd9.IN0
+D[0] => WideAnd11.IN0
+D[1] => WideAnd2.IN1
+D[1] => WideAnd3.IN1
+D[1] => WideAnd6.IN1
+D[1] => WideAnd7.IN1
+D[1] => WideAnd9.IN1
+D[1] => WideAnd10.IN1
+D[1] => WideAnd0.IN1
+D[1] => WideAnd1.IN1
+D[1] => WideAnd4.IN1
+D[1] => WideAnd5.IN1
+D[1] => WideAnd8.IN1
+D[1] => WideAnd11.IN1
+D[1] => WideAnd12.IN1
+D[2] => WideAnd4.IN2
+D[2] => WideAnd5.IN2
+D[2] => WideAnd6.IN2
+D[2] => WideAnd7.IN2
+D[2] => WideAnd11.IN2
+D[2] => WideAnd12.IN2
+D[2] => WideAnd0.IN2
+D[2] => WideAnd1.IN2
+D[2] => WideAnd2.IN2
+D[2] => WideAnd3.IN2
+D[2] => WideAnd8.IN2
+D[2] => WideAnd9.IN2
+D[2] => WideAnd10.IN2
+D[3] => WideAnd8.IN3
+D[3] => WideAnd9.IN3
+D[3] => WideAnd10.IN3
+D[3] => WideAnd11.IN3
+D[3] => WideAnd12.IN3
+D[3] => WideAnd0.IN3
+D[3] => WideAnd1.IN3
+D[3] => WideAnd2.IN3
+D[3] => WideAnd3.IN3
+D[3] => WideAnd4.IN3
+D[3] => WideAnd5.IN3
+D[3] => WideAnd6.IN3
+D[3] => WideAnd7.IN3
+SEG[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+SEG[1] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+SEG[2] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+SEG[3] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+SEG[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+SEG[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+SEG[6] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|decodificador_7seg:U_DECOD_DEZENA
+D[0] => WideAnd1.IN0
+D[0] => WideAnd3.IN0
+D[0] => WideAnd5.IN0
+D[0] => WideAnd7.IN0
+D[0] => WideAnd8.IN0
+D[0] => WideAnd10.IN0
+D[0] => WideAnd12.IN0
+D[0] => WideAnd0.IN0
+D[0] => WideAnd2.IN0
+D[0] => WideAnd4.IN0
+D[0] => WideAnd6.IN0
+D[0] => WideAnd9.IN0
+D[0] => WideAnd11.IN0
+D[1] => WideAnd2.IN1
+D[1] => WideAnd3.IN1
+D[1] => WideAnd6.IN1
+D[1] => WideAnd7.IN1
+D[1] => WideAnd9.IN1
+D[1] => WideAnd10.IN1
+D[1] => WideAnd0.IN1
+D[1] => WideAnd1.IN1
+D[1] => WideAnd4.IN1
+D[1] => WideAnd5.IN1
+D[1] => WideAnd8.IN1
+D[1] => WideAnd11.IN1
+D[1] => WideAnd12.IN1
+D[2] => WideAnd4.IN2
+D[2] => WideAnd5.IN2
+D[2] => WideAnd6.IN2
+D[2] => WideAnd7.IN2
+D[2] => WideAnd11.IN2
+D[2] => WideAnd12.IN2
+D[2] => WideAnd0.IN2
+D[2] => WideAnd1.IN2
+D[2] => WideAnd2.IN2
+D[2] => WideAnd3.IN2
+D[2] => WideAnd8.IN2
+D[2] => WideAnd9.IN2
+D[2] => WideAnd10.IN2
+D[3] => WideAnd8.IN3
+D[3] => WideAnd9.IN3
+D[3] => WideAnd10.IN3
+D[3] => WideAnd11.IN3
+D[3] => WideAnd12.IN3
+D[3] => WideAnd0.IN3
+D[3] => WideAnd1.IN3
+D[3] => WideAnd2.IN3
+D[3] => WideAnd3.IN3
+D[3] => WideAnd4.IN3
+D[3] => WideAnd5.IN3
+D[3] => WideAnd6.IN3
+D[3] => WideAnd7.IN3
+SEG[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+SEG[1] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+SEG[2] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+SEG[3] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+SEG[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+SEG[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+SEG[6] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|conversor_bases:U_CONVERSOR|decodificador_7seg:U_DECOD_CENTENA
+D[0] => WideAnd1.IN0
+D[0] => WideAnd3.IN0
+D[0] => WideAnd5.IN0
+D[0] => WideAnd7.IN0
+D[0] => WideAnd8.IN0
+D[0] => WideAnd10.IN0
+D[0] => WideAnd12.IN0
+D[0] => WideAnd0.IN0
+D[0] => WideAnd2.IN0
+D[0] => WideAnd4.IN0
+D[0] => WideAnd6.IN0
+D[0] => WideAnd9.IN0
+D[0] => WideAnd11.IN0
+D[1] => WideAnd2.IN1
+D[1] => WideAnd3.IN1
+D[1] => WideAnd6.IN1
+D[1] => WideAnd7.IN1
+D[1] => WideAnd9.IN1
+D[1] => WideAnd10.IN1
+D[1] => WideAnd0.IN1
+D[1] => WideAnd1.IN1
+D[1] => WideAnd4.IN1
+D[1] => WideAnd5.IN1
+D[1] => WideAnd8.IN1
+D[1] => WideAnd11.IN1
+D[1] => WideAnd12.IN1
+D[2] => WideAnd4.IN2
+D[2] => WideAnd5.IN2
+D[2] => WideAnd6.IN2
+D[2] => WideAnd7.IN2
+D[2] => WideAnd11.IN2
+D[2] => WideAnd12.IN2
+D[2] => WideAnd0.IN2
+D[2] => WideAnd1.IN2
+D[2] => WideAnd2.IN2
+D[2] => WideAnd3.IN2
+D[2] => WideAnd8.IN2
+D[2] => WideAnd9.IN2
+D[2] => WideAnd10.IN2
+D[3] => WideAnd8.IN3
+D[3] => WideAnd9.IN3
+D[3] => WideAnd10.IN3
+D[3] => WideAnd11.IN3
+D[3] => WideAnd12.IN3
+D[3] => WideAnd0.IN3
+D[3] => WideAnd1.IN3
+D[3] => WideAnd2.IN3
+D[3] => WideAnd3.IN3
+D[3] => WideAnd4.IN3
+D[3] => WideAnd5.IN3
+D[3] => WideAnd6.IN3
+D[3] => WideAnd7.IN3
+SEG[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+SEG[1] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+SEG[2] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+SEG[3] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+SEG[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+SEG[5] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+SEG[6] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY
+seletor[0] => seletor[0].IN1
+seletor[1] => seletor[1].IN1
+HEX5[0] <= mux_4_para_1_7bits:U_MUX_BASE.Y
+HEX5[1] <= mux_4_para_1_7bits:U_MUX_BASE.Y
+HEX5[2] <= mux_4_para_1_7bits:U_MUX_BASE.Y
+HEX5[3] <= mux_4_para_1_7bits:U_MUX_BASE.Y
+HEX5[4] <= mux_4_para_1_7bits:U_MUX_BASE.Y
+HEX5[5] <= mux_4_para_1_7bits:U_MUX_BASE.Y
+HEX5[6] <= mux_4_para_1_7bits:U_MUX_BASE.Y
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE
+D0[0] => D0[0].IN1
+D0[1] => D0[1].IN1
+D0[2] => D0[2].IN1
+D0[3] => D0[3].IN1
+D0[4] => D0[4].IN1
+D0[5] => D0[5].IN1
+D0[6] => D0[6].IN1
+D1[0] => D1[0].IN1
+D1[1] => D1[1].IN1
+D1[2] => D1[2].IN1
+D1[3] => D1[3].IN1
+D1[4] => D1[4].IN1
+D1[5] => D1[5].IN1
+D1[6] => D1[6].IN1
+D2[0] => D2[0].IN1
+D2[1] => D2[1].IN1
+D2[2] => D2[2].IN1
+D2[3] => D2[3].IN1
+D2[4] => D2[4].IN1
+D2[5] => D2[5].IN1
+D2[6] => D2[6].IN1
+D3[0] => D3[0].IN1
+D3[1] => D3[1].IN1
+D3[2] => D3[2].IN1
+D3[3] => D3[3].IN1
+D3[4] => D3[4].IN1
+D3[5] => D3[5].IN1
+D3[6] => D3[6].IN1
+S[0] => S[0].IN7
+S[1] => S[1].IN7
+Y[0] <= mux_4_para_1:MUX_BIT0.Y
+Y[1] <= mux_4_para_1:MUX_BIT1.Y
+Y[2] <= mux_4_para_1:MUX_BIT2.Y
+Y[3] <= mux_4_para_1:MUX_BIT3.Y
+Y[4] <= mux_4_para_1:MUX_BIT4.Y
+Y[5] <= mux_4_para_1:MUX_BIT5.Y
+Y[6] <= mux_4_para_1:MUX_BIT6.Y
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT0
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT1
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT2
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT3
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT4
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT5
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|calculadora_rpn_completa|base_7seg:U_BASE_DISPLAY|mux_4_para_1_7bits:U_MUX_BASE|mux_4_para_1:MUX_BIT6
+D0 => U_AND0_2.IN1
+D1 => U_AND1_2.IN1
+D2 => U_AND2_2.IN1
+D3 => U_AND3_2.IN1
+S[0] => U_AND1_1.IN0
+S[0] => U_AND3_1.IN0
+S[0] => U_AND0_1.IN0
+S[0] => U_AND2_1.IN0
+S[1] => U_AND2_1.IN1
+S[1] => U_AND3_1.IN1
+S[1] => U_AND0_1.IN1
+S[1] => U_AND1_1.IN1
+Y <= U_OR_FINAL.DB_MAX_OUTPUT_PORT_TYPE
+
+

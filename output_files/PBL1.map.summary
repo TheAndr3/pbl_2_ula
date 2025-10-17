@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Fri Oct 17 11:14:24 2025
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : PBL1
+Top-level Entity Name : calculadora_rpn_completa
+Family : MAX 10
+Total logic elements : 469
+    Total combinational functions : 450
+    Dedicated logic registers : 22
+Total registers : 22
+Total pins : 51
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

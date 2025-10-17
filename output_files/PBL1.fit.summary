@@ -1,0 +1,18 @@
+Fitter Status : Successful - Fri Oct 17 11:14:30 2025
+Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Revision Name : PBL1
+Top-level Entity Name : calculadora_rpn_completa
+Family : MAX 10
+Device : 10M50DCF484C7G
+Timing Models : Final
+Total logic elements : 463 / 49,760 ( < 1 % )
+    Total combinational functions : 451 / 49,760 ( < 1 % )
+    Dedicated logic registers : 22 / 49,760 ( < 1 % )
+Total registers : 22
+Total pins : 51 / 360 ( 14 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0
